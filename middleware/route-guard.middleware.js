@@ -1,7 +1,8 @@
 //Maybe don`t need
 const isLoggedIn = (req, res, next) => {
   if (!req.session.user) {
-    return res.redirect("/auth/login");
+    const err = encodeURIComponent("error");
+    return res.redirect("/auth/login?user=" + err);
   }
   next();
 };
