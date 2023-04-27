@@ -19,7 +19,17 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true
-    }
+    },
+    favoriteshows: {
+      type: [Schema.Types.ObjectId],
+      ref: "Show",
+      required: false
+    },
+    favoriteartists: {
+      type: [Schema.Types.ObjectId],
+      ref: "Artist",
+      required: false
+    },
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`    
