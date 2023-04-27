@@ -1,27 +1,27 @@
 <div class="leftbox">
-    <img src="#" alt="Show's photo">
-    <h2>Romeo and Juliet</h2>
+    <img src="<%= image%>" alt="Photo of <%=title%>">
+    <h2><%=title %></h2>
     <div>
-        <p>Date: 10-05-2023</p>
-        <p>Location: International Theater Amsterdam</p>
+        <p>Date: <%=show.date.toDateString()%></p>
+        <p>Location: <%=show.location%></p>
     </div>
 </div>
 
 <div class="rightbox">
     <div>
         <h4>Synopsis</h4>
-        <p>Lorem ipsum</p>
+        <p><%=story%></p>
     </div>
     <div>
         <h4>Author</h4>
-        <p>Lorem ipsum</p>
+        <p><%=author%></p>
     </div>
     <div>
         <h4>Director</h4>
-        <p>Lorem ipsum</p>
+        <p><%=director%></p>
     </div>
     <div>
         <h4>Cast</h4>
-        <p>Lorem ipsum</p>
+        <p><%=cast%></p>
     </div>
 </div>

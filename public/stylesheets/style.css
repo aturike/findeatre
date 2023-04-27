@@ -1,12 +1,39 @@
+/*Generic Formatting*/
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00b7ff;
+  color: black;
+  text-decoration: none;
 }
 
 h1 {
   color: 15px;
 }
+
+/*Navbar*/
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar {
+  display: flex;
+  list-style-type: none;
+  justify-content: space-around;
+}
+
+.navbar li {
+  margin: 0 1vw;
+}
+
+/*Page with all shows*/
+.showgrid {
+  display: grid;
+  grid-template: auto / 1fr 1fr 1fr;
+  gap: 10px;
+}
+

@@ -22,7 +22,7 @@ mongoose
     console.log(`Connected to Mongo! Database name: "${databaseName}"`);
   })
   .then(() => {
-    // return Show.create(data);
+    //return Show.create(data);
     return;
   })
   .catch((err) => {

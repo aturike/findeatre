@@ -1,44 +1,41 @@
 <h2>Upcoming shows in</h2>
 <section class="citysection">
     <h2>Amsterdam</h2>
-    <div class="showbox">
-        <img src="#" alt="A photo of Dutch National Opera">
-        <p>05/05/2023</p>
-        <p>La Traviata</p>
-        <p>Dutch National Opera</p>
-    </div>
-    <div class="showbox">
-        <img src="#" alt="A photo of Dutch National Opera">
-        <p>05/05/2023</p>
-        <p>La Traviata</p>
-        <p>Dutch National Opera</p>
-    </div>
-    <div class="showbox">
-        <img src="#" alt="A photo of Dutch National Opera">
-        <p>05/05/2023</p>
-        <p>La Traviata</p>
-        <p>Dutch National Opera</p>
+
+    <div class="showgrid">
+        <% if (parisshows.length === 0) { %>
+            <p>No upcoming show in Amsterdam!</p>
+        <% } else { %>
+        <% amsterdamshows.forEach(show => { %>
+            <a href="/shows/<%-show._id%>">
+            <div class="showbox">
+                <img src="<%=show.image%>" alt="Photo of <%=show.title%>">
+                <p><%=show.date.toDateString()%></p>
+                <p><%=show.title %></p>
+                <p><%=show.location%></p>
+            </div>
+            </a>         
+        <% }) %>
+        <% } %>
     </div>
 </section>
 
 <section class="citysection">
     <h2>Paris</h2>
-    <div class="showbox">
-        <img src="#" alt="A photo of Dutch National Opera">
-        <p>05/05/2023</p>
-        <p>La Traviata</p>
-        <p>Dutch National Opera</p>
-    </div>
-    <div class="showbox">
-        <img src="#" alt="A photo of Dutch National Opera">
-        <p>05/05/2023</p>
-        <p>La Traviata</p>
-        <p>Dutch National Opera</p>
-    </div>
-    <div class="showbox">
-        <img src="#" alt="A photo of Dutch National Opera">
-        <p>05/05/2023</p>
-        <p>La Traviata</p>
-        <p>Dutch National Opera</p>
+    <div class="showgrid">
+        <% if (parisshows.length === 0) { %>
+            <p>No upcoming show in Paris!</p>
+        <% } else { %>
+        <% parisshows.forEach(show => { %>
+            <a href="/shows/<%-show._id%>">
+            <div class="showbox">
+                <img src="<%=show.image%>" alt="Photo of <%=show.title%>">
+                <p><%=show.date.toDateString()%></p>
+                <p><%=show.title %></p>
+                <p><%=show.location%></p>
+            </div>
+            </a>         
+        <% }) %>
+        <% } %>
     </div>
 </section>
