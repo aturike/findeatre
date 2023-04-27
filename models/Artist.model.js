@@ -10,13 +10,10 @@ const artistSchema = new Schema(
           type: String,
           required: true
         },
-        upcomingShows: {
-            type: [String],
-            required: true
-        },
-        pastShows: {
-            type: [String],
-            required: true,
+        shows: {
+          type: [Schema.Types.ObjectId],
+          ref: "Show",
+          required: false,
         },
         newsSubscription: {
             type: Boolean,
@@ -24,7 +21,7 @@ const artistSchema = new Schema(
         },
         image: {
             type: String,
-            required: true
+            required: false
         },
       },
     {

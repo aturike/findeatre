@@ -27,7 +27,7 @@ router.get("/", async(req, res, next) => {
   }
 })
 
-/* GET show details page */
+/* GET show details page from Home*/
 router.get(`/shows/:showId`, async (req, res) => {
   try {
     const show = await Show.findById(req.params.showId)
@@ -41,8 +41,6 @@ router.get(`/shows/:showId`, async (req, res) => {
     console.log(error)
   }
 });
-
-
 
 /* GET logout page */
 router.get("/logout", (req, res, next) => {

@@ -1,0 +1,16 @@
+[
+    {
+        "name": "William Shakespeare",
+        "bio": "William Shakespeare was a renowned English poet, playwright, and actor born in 1564 in Stratford-upon-Avon. His birthday is most commonly celebrated on 23 April (see When was Shakespeare born), which is also believed to be the date he died in 1616. Shakespeare was a prolific writer during the Elizabethan and Jacobean ages of British theatre (sometimes called the English Renaissance or the Early Modern Period). Shakespeare’s plays are perhaps his most enduring legacy, but they are not all he wrote. Shakespeare’s poems also remain popular to this day.",
+        "shows": [],
+        "newsSubscription": true,
+        "image": ""
+    },
+    {
+        "name": "Benny Andersson",
+        "bio": "Producer/songwriter/keyboardist Benny Andersson co-produced the mega-hits of '70s Swedish pop group ABBA along with fellow ABBA member Björn Ulvaeus. Listening to ABBA, one can hear a definite Phil Spector/Brian Wilson/Beach Boys influence (the dense vocal harmonies) on their records, understandable since Andersson cites the group as a favorite.",
+        "shows": [],
+        "newsSubscription": false,
+        "image": ""
+    }
+]
