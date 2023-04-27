@@ -1,26 +1,38 @@
-<div class="leftbox">
-    <img src="#" alt="Artist's photo">
-    <h2>William Shakespeare</h2>
-    <div>
-        <h4>Bio</h4>
-        <p>Lorem ipsum</p>
+<section class="detailpage">
+    <div class="detailbox">
+        <img src="<%= image%>" alt="Photo of <%=name%>">
+        <h2><%=name %></h2>
+        <% if (bio.length !== 0) { %>
+            <div>
+                <h4>Bio</h4>
+                <p><%=bio%></p>
+            </div>
+        <% } %>
     </div>
-</div>
 
-<div class="rightbox">
-    <div>
-        <h4>Upcoming shows</h4>
-        <p>Lorem ipsum</p>
+    <div class="detailbox">
+        <div>
+            <h4>Upcoming Shows</h4>
+            <% if (upcomingShows.length !== 0) { %>
+                <p><%=upcomingShows%></p>
+            <% } else { %>
+                <p>No upcoming shows. Stay tuned!</p>
+            <% } %>
+        </div>
+        <div>
+            <h4>Past Shows</h4>
+            <% if (pastShows.length !== 0) { %>
+                <p><%=pastShows%></p>
+            <% } else { %>
+                <p>No past show yet. </p>
+            <% } %>
+        </div>
+        <div>
+            <% if (newsSubscription == true) { %>
+                <p>Receive an alert when a new show is added</p>
+            <% } else { %>
+                <p>Receive an alert when a new show is added</p>
+            <% } %>
+        </div>
     </div>
-    <div>
-        <h4>Past shows</h4>
-        <p>Lorem ipsum</p>
-    </div>
-    <div>
-        <h4>My comment</h4>
-        <p>Lorem ipsum</p>
-    </div>
-    <div>
-        <h4>Receive an alert when a new show is added</h4>
-    </div>
-</div>
+</section>
