@@ -27,11 +27,11 @@ router.get("/", async(req, res, next) => {
   }
 })
 
-/* GET show details page */
-router.get("/shows/:id", (req, res, next) => {
-  res.render("showdetail");
-});
 
+
+
+
+/* GET logout page */
 router.get("/logout", (req, res, next) => {
   req.session.destroy((err) => {
     if (err) {
