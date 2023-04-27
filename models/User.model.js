@@ -7,33 +7,33 @@ const userSchema = new Schema(
       type: String,
       trim: true,
       required: false,
-      unique: true
+      unique: true,
     },
     email: {
       type: String,
       required: true,
       unique: true,
       lowercase: true,
-      trim: true
+      trim: true,
     },
-    password: {
+    passwordHash: {
       type: String,
-      required: true
+      required: true,
     },
     favoriteshows: {
       type: [Schema.Types.ObjectId],
       ref: "Show",
-      required: false
+      required: false,
     },
     favoriteartists: {
       type: [Schema.Types.ObjectId],
       ref: "Artist",
-      required: false
+      required: false,
     },
   },
   {
-    // this second object adds extra properties: `createdAt` and `updatedAt`    
-    timestamps: true
+    // this second object adds extra properties: `createdAt` and `updatedAt`
+    timestamps: true,
   }
 );
 
