@@ -1,7 +1,7 @@
 [
   {
     "title": "Romeo and Juliet",
-    "date": 2023-05-10,
+    "date": "2023-05-10T00:00:00.000Z",
     "city": "Amsterdam",
     "location": "Internationaal Theater Amsterdam",
     "story": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
@@ -12,7 +12,7 @@
   },
   {
     "title": "Amsterdam: Magic Show",
-    "date": 2023-06-03,
+    "date": "2023-06-03T00:00:00.000Z",
     "city": "Amsterdam",
     "location": "Boom Chicago",
     "story": "Experience a night of unforgettable entertainment in the heart of Amsterdam with a ticket to the Amsterdam Magic Show. Watch in awe as legendary performers spin tricks before your eyes, and journey through their magical world at a 1920s cabaret theater.",
@@ -23,7 +23,7 @@
   },
   {
     "title": "Mamma Mia! - De ABBA Musical",
-    "date": 2023-08-29,
+    "date": "2023-08-29T00:00:00.000Z",
     "city": "Amsterdam",
     "location": "Stadstheatre de Kom",
     "story": "Mamma Mia! (promoted as Benny Andersson &amp; Björn Ulvaeus' Mamma Mia!) is a jukebox musical written by British playwright Catherine Johnson based on songs recorded by Swedish group ABBA and composed by Benny Andersson and Björn Ulvaeus, members of the band. The title of the musical is taken from the group's 1975 chart-topper \"Mamma Mia\". Ulvaeus and Andersson, who composed the original music for ABBA, were involved in the development of the show from the beginning. Singer Anni-Frid Lyngstad was involved financially in the production and she was also present at many of the premieres around the world.",
@@ -34,7 +34,7 @@
   },
   {
     "title": "Sweeney Todd",
-    "date": 2023-05-21,
+    "date": "2023-05-21T00:00:00.000Z",
     "city": "Amsterdam",
     "location": "DeLaMar Theater",
     "story": "Sweeney Todd: The Demon Barber of Fleet Street (often referred to simply as Sweeney Todd) is a musical with music and lyrics by Stephen Sondheim and a book by Hugh Wheeler. It is based on the 1970 play Sweeny Todd by Christopher Bond. The character of Sweeney Todd first appeared in a Victorian penny dreadful titled The String of Pearls.\nSweeney Todd opened on Broadway in 1979 and in the West End in 1980. It won the Tony Award for Best Musical and Olivier Award for Best New Musical. It has been revived in many productions as well as inspiring a film adaptation. ",

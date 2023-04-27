@@ -2,7 +2,6 @@
 // https://www.npmjs.com/package/mongoose
 const mongoose = require("mongoose");
 
-
 // ℹ️ Sets the MongoDB URI for our app to have access to it.
 // If no env has been set, we dynamically set it to whatever the folder name was upon the creation of the app
 
@@ -14,9 +13,7 @@ const Artist = require("../models/Artist.model");
 const Show = require("../models/Show.model");
 const User = require("../models/User.model");
 
-const data = require("../database/showdata.json")
-
-console.log(data)
+const data = require("../database/showdata.json");
 
 mongoose
   .connect(MONGO_URI)
@@ -24,11 +21,10 @@ mongoose
     const databaseName = x.connections[0].name;
     console.log(`Connected to Mongo! Database name: "${databaseName}"`);
   })
-  .then(() =>{
-    return Show.create(data);
+  .then(() => {
+    // return Show.create(data);
+    return;
   })
   .catch((err) => {
     console.error("Error connecting to mongo: ", err);
   });
-
-
