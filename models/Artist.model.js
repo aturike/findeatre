@@ -22,6 +22,10 @@ const artistSchema = new Schema(
             type: boolean,
             required: true
         },
+        image: {
+            type: String,
+            required: true
+        },
       },
     {
         // this second object adds extra properties: `createdAt` and `updatedAt`    
