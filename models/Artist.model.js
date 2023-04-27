@@ -19,7 +19,7 @@ const artistSchema = new Schema(
             required: true,
         },
         newsSubscription: {
-            type: boolean,
+            type: Boolean,
             required: true
         },
         image: {
