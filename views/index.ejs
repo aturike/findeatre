@@ -1,9 +1,11 @@
+<%- include("./partials/navbar.ejs") %>
+
 <h2>Upcoming shows in</h2>
 <section class="citysection">
     <h2>Amsterdam</h2>
 
     <div class="showgrid">
-        <% if (parisshows.length === 0) { %>
+       <% if (parisshows.length === 0) { %>
             <p>No upcoming show in Amsterdam!</p>
         <% } else { %>
         <% amsterdamshows.forEach(show => { %>
