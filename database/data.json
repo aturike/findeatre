@@ -5,7 +5,8 @@
     "City": "Amsterdam",
     "Location": "Internationaal Theater Amsterdam",
     "Story": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    "Author": "William Shakespeare",
+    "Author": ["William Shakespeare"],
+    "Director": [],
     "Cast": ["Adam Turi", "Solen Wanono"]
   },
   {
@@ -14,7 +15,8 @@
     "City": "Amsterdam",
     "Location": "Boom Chicago",
     "Story": "Experience a night of unforgettable entertainment in the heart of Amsterdam with a ticket to the Amsterdam Magic Show. Watch in awe as legendary performers spin tricks before your eyes, and journey through their magical world at a 1920s cabaret theater.",
-    "Cast": "Alex Blackwood, Fritz with Z, Quintus, Arthur Gerards"
+    "Author": [],
+    "Cast": ["Alex Blackwood", "Fritz with Z", "Quintus, Arthur Gerards"]
   },
   {
     "Title": "Mamma Mia! - De ABBA Musical",
@@ -22,8 +24,9 @@
     "City": "Amsterdam",
     "Location": "Stadstheatre de Kom",
     "Story": "Mamma Mia! (promoted as Benny Andersson &amp; Björn Ulvaeus' Mamma Mia!) is a jukebox musical written by British playwright Catherine Johnson based on songs recorded by Swedish group ABBA and composed by Benny Andersson and Björn Ulvaeus, members of the band. The title of the musical is taken from the group's 1975 chart-topper \"Mamma Mia\". Ulvaeus and Andersson, who composed the original music for ABBA, were involved in the development of the show from the beginning. Singer Anni-Frid Lyngstad was involved financially in the production and she was also present at many of the premieres around the world.",
-    "Author": "Benny Andersson, Björn Ulvaeus",
-    "Cast": "Brigitte Heitzer, René van Kooten"
+    "Director": [],
+    "Author": ["Benny Andersson", "Björn Ulvaeus"],
+    "Cast": ["Brigitte Heitzer", "René van Kooten"]
   },
   {
     "Title": "Sweeney Todd",
@@ -31,7 +34,8 @@
     "City": "Amsterdam",
     "Location": "DeLaMar Theater",
     "Story": "Sweeney Todd: The Demon Barber of Fleet Street (often referred to simply as Sweeney Todd) is a musical with music and lyrics by Stephen Sondheim and a book by Hugh Wheeler. It is based on the 1970 play Sweeny Todd by Christopher Bond. The character of Sweeney Todd first appeared in a Victorian penny dreadful titled The String of Pearls.\nSweeney Todd opened on Broadway in 1979 and in the West End in 1980. It won the Tony Award for Best Musical and Olivier Award for Best New Musical. It has been revived in many productions as well as inspiring a film adaptation. ",
-    "Author": "Stephen Sondheim",
-    "Cast": "Simone Kleinsma"
+    "Director": [],
+    "Author": ["Stephen Sondheim"],
+    "Cast": ["Simone Kleinsma"]
   }
 ]
