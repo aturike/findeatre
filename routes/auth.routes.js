@@ -4,7 +4,7 @@ const bcryptjs = require("bcrypt");
 const User = require("../models/User.model");
 
 const passwordRegex =
-  /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{2,}$/;
+  /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{6,}$/;
 
 router.get("/login", (req, res, next) => {
   res.render("login", { errorMessage: "" });

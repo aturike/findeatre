@@ -26,9 +26,11 @@ const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);
 
 const authRoutes = require("./routes/auth.routes");
-app.use("/auth", authRoutes);
+const { isLoggedOut } = require("./middleware/route-guard.middleware");
+app.use("/auth", isLoggedOut, authRoutes);
 
 const profileRoutes = require("./routes/profile.routes");
+
 app.use("/profile", profileRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes

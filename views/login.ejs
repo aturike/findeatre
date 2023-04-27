@@ -1,15 +1,18 @@
-<form method="POST" action="/auth/login">
+<!-- Display overwritten by javascript-->
+
+<form class="JSform" method="POST" action="/auth/login">
   <label >Username <input name="username" /></label>
   <label >Password <input name="password"  type="password"/></label>
   <button type="submit" class="login-btn">Log in</button>
 </form>
 
-
-<form method="POST" action="/auth/signup">
+<form class="JSform" method="POST" action="/auth/signup">
   <label >Username <input name="username" /></label>
   <label >Email address <input name="email" type="email"/></label>
   <label >Password <input name="password" type="password"/></label>
   <button class="signup-btn">Sign up</button>
 </form>
+
+<button class="JSbutton">Button</button>
 
 <p><%-errorMessage %></p>
