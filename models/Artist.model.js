@@ -8,7 +8,7 @@ const artistSchema = new Schema(
         },
         bio: {
           type: String,
-          required: true
+          required: true,
         },
         shows: {
           type: [Schema.Types.ObjectId],
@@ -17,11 +17,15 @@ const artistSchema = new Schema(
         },
         newsSubscription: {
             type: Boolean,
-            required: true
+            required: true,
+        },
+        favorite: {
+          type: Boolean,
+          required: false,
         },
         image: {
             type: String,
-            required: false
+            required: false,
         },
       },
     {

@@ -34,6 +34,10 @@ const showSchema = new Schema(
             type: [String],
             required: true,
         },
+        favorite: {
+          type: Boolean,
+          required: false,
+        },
         image: {
             type: String,
             required: false,

@@ -1,0 +1,17 @@
+<h2>Artists I follow</h2>
+<section class="citysection">
+    <div class="showgrid">
+        <% if (myartists.length === 0) { %>
+            <p>You are not following any artist. Follow some now!</p>
+        <% } else { %>
+        <% myartists.forEach(artist => { %>
+            <a href="/artists/<%-artist._id%>">
+            <div class="showbox">
+                <img src="<%=artist.image%>" alt="Photo of <%=artist.name%>">
+                <p><%=artist.name%></p>
+            </div>
+            </a>         
+        <% }) %>
+        <% } %>
+    </div>
+</section>
