@@ -12,12 +12,14 @@ const {
 router.get("/myshows", isLoggedIn, async (req, res, next) => {
   try {
     const userId = req.session.user.userId;
-    const favoriteShows = await User.findById(userId)
+    const { favoriteshows } = await User.findById(userId)
       .populate("favoriteshows")
-      //.select({
-      //  favoriteshows: 1,
-      //  _id: 0,
-      // });
+      .select({
+        favoriteshows: 1,
+        _id: 0,
+      });
+
+    console.log(favoriteshows);
 
     const amsterdamShows = await Show.find()
       .sort({ date: 1 })
@@ -34,7 +36,7 @@ router.get("/myshows", isLoggedIn, async (req, res, next) => {
     res.render("myshows", {
       amsterdamshows: amsterdamShows,
       parisshows: parisShows,
-      favoriteshows: favoriteShows,
+      favoriteshows: favoriteshows,
       isLogin: isLoggedin,
     });
   } catch (error) {
