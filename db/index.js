@@ -22,8 +22,10 @@ mongoose
     console.log(`Connected to Mongo! Database name: "${databaseName}"`);
   })
   .then(() => {
-    //return Show.create(data);
-    return;
+    return Show.deleteMany();
+  })
+  .then(() => {
+    return Show.create(data);
   })
   .catch((err) => {
     console.error("Error connecting to mongo: ", err);

@@ -26,8 +26,8 @@ const indexRoutes = require("./routes/index.routes");
 app.use("/", indexRoutes);
 
 const authRoutes = require("./routes/auth.routes");
-const { isLoggedOut } = require("./middleware/route-guard.middleware");
-app.use("/auth", isLoggedOut, authRoutes);
+
+app.use("/auth", authRoutes);
 
 const profileRoutes = require("./routes/profile.routes");
 

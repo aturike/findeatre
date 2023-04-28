@@ -1,3 +1,4 @@
+<%- include("./partials/navbar.ejs", {isLogin:false}) %>
 <!-- Display overwritten by javascript-->
 
 <form class="JSform" method="POST" action="/auth/login">
@@ -13,6 +14,6 @@
   <button class="signup-btn">Sign up</button>
 </form>
 
-<button class="JSbutton">Button</button>
+<button class="JSbutton">Sign up</button>
 
 <p><%-errorMessage %></p>

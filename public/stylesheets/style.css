@@ -37,3 +37,12 @@ nav {
   gap: 10px;
 }
 
+/* Auth page */
+
+.login {
+  display: block;
+}
+
+.sign-up {
+  display: none;
+}

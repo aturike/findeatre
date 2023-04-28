@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const Show = require('../models/Show.model')
+const Show = require("../models/Show.model");
 
 /* GET home page 
 router.get("/", (req, res, next) => {
@@ -9,23 +9,29 @@ router.get("/", (req, res, next) => {
 });
 */
 
-router.get("/", async(req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
     const amsterdamShows = await Show.find()
-    .sort({date: 1})
-    .find({city: 'Amsterdam'})
-    .exec();
+      .sort({ date: 1 })
+      .find({ city: "Amsterdam" })
+      .exec();
 
     const parisShows = await Show.find()
-    .sort({date: 1})
-    .find({city: 'Paris'})
-    .exec();
+      .sort({ date: 1 })
+      .find({ city: "Paris" })
+      .exec();
 
-    res.render('index', {amsterdamshows: amsterdamShows, parisshows: parisShows})
+    const isLoggedin = !!req.session.user;
+
+    res.render("index", {
+      amsterdamshows: amsterdamShows,
+      parisshows: parisShows,
+      isLogin: isLoggedin,
+    });
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-})
+});
 
 
 
