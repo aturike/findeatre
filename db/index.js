@@ -13,7 +13,7 @@ const Artist = require("../models/Artist.model");
 const Show = require("../models/Show.model");
 const User = require("../models/User.model");
 
-const data = require("../database/showdata.json");
+const showdata = require("../database/showdata.json");
 const artistData = require("../database/artistdata.json");
 
 mongoose
@@ -23,10 +23,36 @@ mongoose
     console.log(`Connected to Mongo! Database name: "${databaseName}"`);
   })
   .then(() => {
-    return Show.deleteMany();
+    const updateOperations = showdata.map((show) => {
+      //  $set operator update the existing document
+      return {
+        updateOne: {
+          filter: { title: show.title },
+          update: { $set: show },
+          upsert: true, // creates new document if it doesn't exist
+        },
+      };
+    });
+    return Show.bulkWrite(updateOperations);
+  })
+  .then((result) => {
+    console.log("Show data updated", result);
   })
   .then(() => {
-    return Show.create(data);
+    const updateOperations = artistData.map((artist) => {
+      //  $set operator update the existing document
+      return {
+        updateOne: {
+          filter: { name: artist.name },
+          update: { $set: artist },
+          upsert: true, // creates new document if it doesn't exist
+        },
+      };
+    });
+    return Artist.bulkWrite(updateOperations);
+  })
+  .then((result) => {
+    console.log("Artist data updated", result);
   })
   .catch((err) => {
     console.error("Error connecting to mongo: ", err);
