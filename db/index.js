@@ -14,6 +14,7 @@ const Show = require("../models/Show.model");
 const User = require("../models/User.model");
 
 const data = require("../database/showdata.json");
+const artistData = require("../database/artistdata.json");
 
 mongoose
   .connect(MONGO_URI)

@@ -8,23 +8,24 @@ const artistSchema = new Schema(
         },
         bio: {
           type: String,
-          required: true
+          required: true,
         },
-        upcomingShows: {
-            type: [String],
-            required: true
-        },
-        pastShows: {
-            type: [String],
-            required: true,
+        shows: {
+          type: [Schema.Types.ObjectId],
+          ref: "Show",
+          required: false,
         },
         newsSubscription: {
             type: Boolean,
-            required: true
+            required: true,
+        },
+        favorite: {
+          type: Boolean,
+          required: false,
         },
         image: {
             type: String,
-            required: true
+            required: false,
         },
       },
     {

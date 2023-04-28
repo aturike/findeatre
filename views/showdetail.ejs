@@ -1,27 +1,35 @@
-<div class="leftbox">
-    <img src="<%= image%>" alt="Photo of <%=title%>">
-    <h2><%=title %></h2>
-    <div>
-        <p>Date: <%=show.date.toDateString()%></p>
-        <p>Location: <%=show.location%></p>
+<section class="detailpage">
+    <div class="detailbox">
+        <img src="<%= image%>" alt="Photo of <%=title%>">
+        <h2><%=title %></h2>
+        <div>
+            <p><strong>Date:</strong> <%=date.toDateString()%></p>
+            <p><strong>Location:</strong> <%=location%></p>
+        </div>
     </div>
-</div>
 
-<div class="rightbox">
-    <div>
-        <h4>Synopsis</h4>
-        <p><%=story%></p>
+    <div class="detailbox">
+        <div>
+            <h4>Synopsis</h4>
+            <p><%=story%></p>
+        </div>
+        <% if (author.length !== 0) { %>
+            <div>
+                <h4>Author</h4>
+                <p><%=author%></p>
+            </div>
+        <% } %>
+        <% if (director.length !== 0) { %>
+        <div>
+            <h4>Director</h4>
+            <p><%=director%></p>
+        </div>
+        <% } %>
+        <% if (cast.length !== 0) { %>
+        <div>
+            <h4>Cast</h4>
+            <p><%=cast%></p>
+        </div>
+        <% } %>
     </div>
-    <div>
-        <h4>Author</h4>
-        <p><%=author%></p>
-    </div>
-    <div>
-        <h4>Director</h4>
-        <p><%=director%></p>
-    </div>
-    <div>
-        <h4>Cast</h4>
-        <p><%=cast%></p>
-    </div>
-</div>
+</section>

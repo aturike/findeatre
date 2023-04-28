@@ -32,7 +32,11 @@ const showSchema = new Schema(
         },
         cast: {
             type: [String],
-            required: true
+            required: true,
+        },
+        favorite: {
+          type: Boolean,
+          required: false,
         },
         image: {
             type: String,

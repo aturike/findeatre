@@ -33,9 +33,20 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-
-
-
+/* GET show details page from Home*/
+router.get(`/shows/:showId`, async (req, res) => {
+  try {
+    const show = await Show.findById(req.params.showId)
+    console.log(show)
+    if(!show) {
+      res.redirect('/shows')
+    } else {
+      res.render('showdetail', show);
+    }
+  } catch (error) {
+    console.log(error)
+  }
+});
 
 /* GET logout page */
 router.get("/logout", (req, res, next) => {

@@ -5,6 +5,10 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+img {
+  max-width: 100%;
+}
+
 a {
   color: black;
   text-decoration: none;
@@ -36,6 +40,17 @@ nav {
   grid-template: auto / 1fr 1fr 1fr;
   gap: 10px;
 }
+
+/*Show details page*/
+.detailpage {
+  display: grid;
+  grid-template: auto / 1.5fr 2fr;
+  gap: 10px;
+  margin: 10vh 1vw;
+}
+
+/*Show details page*/
+
 
 /* Auth page */
 

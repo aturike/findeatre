@@ -1,9 +1,6 @@
-<%- include("./partials/navbar.ejs") %>
-
-<h2>Upcoming shows in</h2>
+<h2>My upcoming shows</h2>
 <section class="citysection">
     <h2>Amsterdam</h2>
-
     <div class="showgrid">
         <% if (amsterdamshows.length === 0) { %>
             <p>No upcoming show in Amsterdam!</p>
@@ -15,9 +12,6 @@
                 <p><%=show.date.toDateString()%></p>
                 <p><%=show.title %></p>
                 <p><%=show.location%></p>
-                <form action="/auth/show/<%-show._id%>">
-                    <button type="submit">Add to favourites</button>
-                </form>
             </div>
             </a>         
         <% }) %>
