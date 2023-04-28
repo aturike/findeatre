@@ -1,52 +1,22 @@
 <%- include("./partials/navbar.ejs", {isLogin:true}) %>
 
 <h2>My upcoming shows</h2>
-
-<% if (favoriteshows.length === 0) { %>
-    <p>You haven't added any favorite show yet!</p>
-<% } else { %>
-<% favoriteshows.forEach(show => { %>
-    <p><%=show.title %></p>
-    <p><%=show.location%></p>
-<% }) %>
+    <section class="citysection">
+        <div class="showgrid">
+            <% if (favoriteshows.length === 0) { %>
+                <p>You haven't added any favorite show yet!</p>
+            <% } else { %>
+            <% favoriteshows.forEach(show => { %>
+                <a href="/profile/myshows/<%-show._id%>">
+                <div class="showbox">
+                    <img src="<%=show.image%>" alt="Photo of <%=show.title%>">
+                    <p><%=show.date.toDateString()%></p>
+                    <p><%=show.title %></p>
+                    <p><%=show.location%></p>
+                    <p><%=show.city%></p>
+                </div>
+                </a>         
+            <% }) %>
+        </div>
+    </section>
 <% } %>
-
-<section class="citysection">
-    <h2>Amsterdam</h2>
-    <div class="showgrid">
-        <% if (amsterdamshows.length === 0) { %>
-            <p>No upcoming show in Amsterdam!</p>
-        <% } else { %>
-        <% amsterdamshows.forEach(show => { %>
-            <a href="/profile/myshows/<%-show._id%>">
-            <div class="showbox">
-                <img src="<%=show.image%>" alt="Photo of <%=show.title%>">
-                <p><%=show.date.toDateString()%></p>
-                <p><%=show.title %></p>
-                <p><%=show.location%></p>
-            </div>
-            </a>         
-        <% }) %>
-        <% } %>
-    </div>
-</section>
-
-<section class="citysection">
-    <h2>Paris</h2>
-    <div class="showgrid">
-        <% if (parisshows.length === 0) { %>
-            <p>No upcoming show in Paris!</p>
-        <% } else { %>
-        <% parisshows.forEach(show => { %>
-            <a href="/profile/myshows/<%-show._id%>">
-            <div class="showbox">
-                <img src="<%=show.image%>" alt="Photo of <%=show.title%>">
-                <p><%=show.date.toDateString()%></p>
-                <p><%=show.title %></p>
-                <p><%=show.location%></p>
-            </div>
-            </a>         
-        <% }) %>
-        <% } %>
-    </div>
-</section>

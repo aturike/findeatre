@@ -38,6 +38,9 @@
                 <p><%=show.date.toDateString()%></p>
                 <p><%=show.title %></p>
                 <p><%=show.location%></p>
+                <form action="/auth/show/<%-show._id%>">
+                    <button type="submit">Add to favourites</button>
+                </form>
             </div>
             </a>         
         <% }) %>

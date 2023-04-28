@@ -2,12 +2,12 @@
 
 <section class="detailpage">
     <div class="detailbox">
-        <img src="<%= image%>" alt="Photo of <%=name%>">
-        <h2><%=name %></h2>
-        <% if (bio.length !== 0) { %>
+        <img src="<%= artist.image%>" alt="Photo of <%=artist.name%>">
+        <h2><%=artist.name %></h2>
+        <% if (artist.bio.length !== 0) { %>
             <div>
                 <h4>Bio</h4>
-                <p><%=bio%></p>
+                <p><%=artist.bio%></p>
             </div>
         <% } %>
     </div>
@@ -15,22 +15,22 @@
     <div class="detailbox">
         <div>
             <h4>Upcoming Shows</h4>
-            <% if (upcomingShows.length !== 0) { %>
-                <p><%=upcomingShows%></p>
+            <% if (artistshows.length !== 0) { %>
+                <p><%=artistshows%></p>
             <% } else { %>
                 <p>No upcoming shows. Stay tuned!</p>
             <% } %>
         </div>
         <div>
             <h4>Past Shows</h4>
-            <% if (pastShows.length !== 0) { %>
-                <p><%=pastShows%></p>
+            <% if (artistshows.length !== 0) { %>
+                <p><%=artistshows%></p>
             <% } else { %>
                 <p>No past show yet. </p>
             <% } %>
         </div>
         <div>
-            <% if (newsSubscription == true) { %>
+            <% if (artist.newsSubscription == true) { %>
                 <p>Receive an alert when a new show is added</p>
             <% } else { %>
                 <p>Receive an alert when a new show is added</p>

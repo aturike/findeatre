@@ -44,15 +44,12 @@ router.get("/myshows", isLoggedIn, async (req, res, next) => {
   }
 });
 
-/* GET show details page from Profile
-router.get("/shows/:id", (req, res, next) => {
-  res.render("showdetail");
-});
-*/
+/* GET show details page from Profile */
 
 /* GET show details page from Profile*/
 router.get(`/myshows/:showId`, async (req, res) => {
   try {
+    const isLoggedinValue = !!req.session.user;
     const show = await Show.findById(req.params.showId);
     console.log(show);
     if (!show) {
@@ -65,34 +62,44 @@ router.get(`/myshows/:showId`, async (req, res) => {
   }
 });
 
-/* GET My artists page 
-router.get("/artists", (req, res, next) => {
-  res.render("artists");
-});
-*/
-
-router.get("/artists", async (req, res, next) => {
+/* GET My artists page */
+router.get("/myartists", isLoggedIn, async (req, res, next) => {
   try {
-    const artists = await Artist.find()
-      .populate(shows)
-      .sort({ name: 1 })
-      .exec();
+    const userId = req.session.user.userId;
+    const {favoriteartists} = await User.findById(userId)
+    .populate("favoriteartists")
+    .select({
+      favoriteartists: 1,
+      _id: 0,
+    });
 
-    const myArtists = await Artist.find()
-      .populate(shows)
-      .sort({ name: 1 })
-      .find({ favorite: "true" })
-      .exec();
+    console.log(favoriteartists);
 
-    res.render("myartists", { artists: artists, myartists: myArtists });
+    const isLoggedin = !!req.session.user;
+
+    res.render("myartists", { 
+      favoriteartists: favoriteartists, 
+      isLogin: isLoggedin,
+    });
   } catch (error) {
     console.log(error);
   }
 });
 
 /* GET artist details page */
-router.get("/artists/:id", (req, res, next) => {
-  res.render("artistdetail");
+router.get("/myartists/:id", async (req, res) => {
+  try {
+    const isLoggedinValue = !!req.session.user;
+    const artist = await Artist.findById(req.params.artistId);
+    console.log(artist);
+    if (!artist) {
+      res.redirect("/myartists");
+    } else {
+      res.redirect("/artists/:artistId");
+    }
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 module.exports = router;
