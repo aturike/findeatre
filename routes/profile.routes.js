@@ -44,12 +44,6 @@ router.get("/myshows", isLoggedIn, async (req, res, next) => {
   }
 });
 
-/* GET show details page from Profile
-router.get("/shows/:id", (req, res, next) => {
-  res.render("showdetail");
-});
-*/
-
 /* GET show details page from Profile*/
 router.get(`/myshows/:showId`, async (req, res) => {
   try {
@@ -65,12 +59,7 @@ router.get(`/myshows/:showId`, async (req, res) => {
   }
 });
 
-/* GET My artists page 
-router.get("/artists", (req, res, next) => {
-  res.render("artists");
-});
-*/
-
+/* GET artist page */
 router.get("/artists", async (req, res, next) => {
   try {
     const artists = await Artist.find()
