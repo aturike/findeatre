@@ -36,15 +36,16 @@ router.get("/", async (req, res, next) => {
 /* GET show details page from Home*/
 router.get(`/shows/:showId`, async (req, res) => {
   try {
-    const show = await Show.findById(req.params.showId)
-    console.log(show)
-    if(!show) {
-      res.redirect('/shows')
+    const isLoggedinValue = !!req.session.user;
+    const show = await Show.findById(req.params.showId);
+    console.log(show);
+    if (!show) {
+      res.redirect("/shows");
     } else {
-      res.render('showdetail', show);
+      res.render("showdetail", { show, isLogin: isLoggedinValue });
     }
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 });
 

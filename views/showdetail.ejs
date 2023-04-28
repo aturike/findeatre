@@ -1,36 +1,36 @@
-<%- include("./partials/navbar.ejs", {isLogin:false}) %>
+<%- include("./partials/navbar.ejs") %>
 
 <section class="detailpage">
     <div class="detailbox">
-        <img src="<%= image%>" alt="Photo of <%=title%>">
-        <h2><%=title %></h2>
+        <img src="<%= show.image%>" alt="Photo of <%=show.title%>">
+        <h2><%=show.title %></h2>
         <div>
-            <p><strong>Date:</strong> <%=date.toDateString()%></p>
-            <p><strong>Location:</strong> <%=location%></p>
+            <p><strong>Date:</strong> <%=show.date.toDateString()%></p>
+            <p><strong>Location:</strong> <%=show.location%></p>
         </div>
     </div>
 
     <div class="detailbox">
         <div>
             <h4>Synopsis</h4>
-            <p><%=story%></p>
+            <p><%=show.story%></p>
         </div>
-        <% if (author.length !== 0) { %>
+        <% if (show.author.length !== 0) { %>
             <div>
                 <h4>Author</h4>
-                <p><%=author%></p>
+                <p><%=show.author%></p>
             </div>
         <% } %>
-        <% if (director.length !== 0) { %>
+        <% if (show.director.length !== 0) { %>
         <div>
             <h4>Director</h4>
-            <p><%=director%></p>
+            <p><%=show.director%></p>
         </div>
         <% } %>
-        <% if (cast.length !== 0) { %>
+        <% if (show.cast.length !== 0) { %>
         <div>
             <h4>Cast</h4>
-            <p><%=cast%></p>
+            <p><%=show.cast%></p>
         </div>
         <% } %>
     </div>
