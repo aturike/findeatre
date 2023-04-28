@@ -3,37 +3,21 @@ const router = express.Router();
 const User = require("../models/User.model");
 const Show = require("../models/Show.model");
 const Artist = require("../models/Artist.model");
+const {
+  isLoggedOut,
+  isLoggedIn,
+} = require("../middleware/route-guard.middleware.js");
 
 /* GET My shows page */
-router.get("/myshows", async (req, res, next) => {
+router.get("/myshows", isLoggedIn, async (req, res, next) => {
   try {
     const userId = req.session.user.userId;
-    const { favoriteshows } = await User.findById(userId)
+    const favoriteShows = await User.findById(userId)
       .populate("favoriteshows")
-      .select({
-        favoriteshows: 1,
-        _id: 0,
-      });
-
-    console.log(favoriteshows);
-    // example:
-    // [
-    //   {
-    //     _id: new ObjectId("644b8f1f88e8e72d4a3a47f1"),
-    //     title: 'Romeo and Juliet',
-    //     date: 2023-05-10T00:00:00.000Z,
-    //     city: 'Amsterdam',
-    //     location: 'Internationaal Theater Amsterdam',
-    //     story: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-    //     author: [ 'William Shakespeare' ],
-    //     director: [],
-    //     cast: [ 'Adam Turi', 'Solen Wanono' ],
-    //     image: '',
-    //     createdAt: 2023-04-28T09:17:19.733Z,
-    //     updatedAt: 2023-04-28T09:17:19.733Z,
-    //     __v: 0
-    //   }
-    // ]
+      //.select({
+      //  favoriteshows: 1,
+      //  _id: 0,
+      // });
 
     const amsterdamShows = await Show.find()
       .sort({ date: 1 })
@@ -50,6 +34,7 @@ router.get("/myshows", async (req, res, next) => {
     res.render("myshows", {
       amsterdamshows: amsterdamShows,
       parisshows: parisShows,
+      favoriteshows: favoriteShows,
       isLogin: isLoggedin,
     });
   } catch (error) {

@@ -1,4 +1,16 @@
+<%- include("./partials/navbar.ejs", {isLogin:true}) %>
+
 <h2>My upcoming shows</h2>
+
+<% if (favoriteshows.length === 0) { %>
+    <p>You haven't added any favorite show yet!</p>
+<% } else { %>
+<% favoriteshows.forEach(show => { %>
+    <p><%=show.title %></p>
+    <p><%=show.location%></p>
+<% }) %>
+<% } %>
+
 <section class="citysection">
     <h2>Amsterdam</h2>
     <div class="showgrid">
