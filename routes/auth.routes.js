@@ -73,13 +73,22 @@ router.get("/show/:id", isLoggedIn, async (req, res, next) => {
       _id: 0,
     });
 
-    if (favoriteshows.indexOf(req.params.id) === -1) {
-      await User.findByIdAndUpdate(userId, {
-        $push: { favoriteshows: req.params.id },
-      });
-      console.log("push", req.params.id);
+    const showId = req.params.id;
+
+    if (favoriteshows.indexOf(showId) === -1) {
+      const newFav = await User.findByIdAndUpdate(
+        userId,
+        {
+          $push: { favoriteshows: showId },
+        },
+        { new: true }
+      );
+      console.log("push", showId);
     } else {
-      console.log("remove", req.params.id);
+      // await User.findByIdAndUpdate(userId, {
+      //   $pull: { favoriteshows: req.params.id },
+      // });
+      console.log("remove", showId);
     }
   } catch (error) {
     console.log(error);
