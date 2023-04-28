@@ -1,12 +1,42 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-
-const Show = require('../models/Show.model')
-const Artist = require('../models/Artist.model')
+const User = require("../models/User.model");
+const Show = require("../models/Show.model");
+const Artist = require("../models/Artist.model");
 
 /* GET My shows page */
-router.get("/shows", (req, res, next) => {
-  res.render("shows");
+router.get("/myshows", async (req, res, next) => {
+  try {
+    const userId = req.session.user.userId;
+    const { favoriteshows } = await User.findById(userId)
+      .populate("favoriteshows")
+      .select({
+        favoriteshows: 1,
+        _id: 0,
+      });
+
+    console.log(favoriteshows);
+
+    const amsterdamShows = await Show.find()
+      .sort({ date: 1 })
+      .find({ city: "Amsterdam" })
+      .exec();
+
+    const parisShows = await Show.find()
+      .sort({ date: 1 })
+      .find({ city: "Paris" })
+      .exec();
+
+    const isLoggedin = !!req.session.user;
+
+    res.render("myshows", {
+      amsterdamshows: amsterdamShows,
+      parisshows: parisShows,
+      isLogin: isLoggedin,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 /* GET show details page from Profile
@@ -16,17 +46,17 @@ router.get("/shows/:id", (req, res, next) => {
 */
 
 /* GET show details page from Profile*/
-router.get(`/shows/:showId`, async (req, res) => {
+router.get(`/myshows/:showId`, async (req, res) => {
   try {
-    const show = await Show.findById(req.params.showId)
-    console.log(show)
-    if(!show) {
-      res.redirect('/shows')
+    const show = await Show.findById(req.params.showId);
+    console.log(show);
+    if (!show) {
+      res.redirect("/myshows");
     } else {
-      res.redirect('/shows/:showId');
+      res.redirect("/shows/:showId");
     }
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 });
 
@@ -36,24 +66,24 @@ router.get("/artists", (req, res, next) => {
 });
 */
 
-router.get("/artists", async(req, res, next) => {
+router.get("/artists", async (req, res, next) => {
   try {
     const artists = await Artist.find()
-    .populate(shows)
-    .sort({name: 1})
-    .exec();
+      .populate(shows)
+      .sort({ name: 1 })
+      .exec();
 
     const myArtists = await Artist.find()
-    .populate(shows)
-    .sort({name: 1})
-    .find({favorite: 'true'})
-    .exec();
+      .populate(shows)
+      .sort({ name: 1 })
+      .find({ favorite: "true" })
+      .exec();
 
-    res.render('myartists', {artists: artists, myartists: myArtists})
+    res.render("myartists", { artists: artists, myartists: myArtists });
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-})
+});
 
 /* GET artist details page */
 router.get("/artists/:id", (req, res, next) => {

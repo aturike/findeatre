@@ -76,20 +76,18 @@ router.get("/show/:id", isLoggedIn, async (req, res, next) => {
     const showId = req.params.id;
 
     if (favoriteshows.indexOf(showId) === -1) {
-      const newFav = await User.findByIdAndUpdate(
-        userId,
-        {
-          $push: { favoriteshows: showId },
-        },
-        { new: true }
-      );
+      await User.findByIdAndUpdate(userId, {
+        $push: { favoriteshows: showId },
+      });
       console.log("push", showId);
     } else {
-      // await User.findByIdAndUpdate(userId, {
-      //   $pull: { favoriteshows: req.params.id },
-      // });
+      await User.findByIdAndUpdate(userId, {
+        $pull: { favoriteshows: { $in: [showId] } },
+      });
       console.log("remove", showId);
     }
+
+    res.redirect("/");
   } catch (error) {
     console.log(error);
   }
