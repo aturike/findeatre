@@ -19,12 +19,18 @@
             <div>
                 <h4>Author</h4>
                 <p><%=show.author%></p>
+                <!-- <form action="/auth/artists/< show.artist._id%>">
+                    <button type="submit">Add to favorites</button>
+                </form> -->
             </div>
         <% } %>
         <% if (show.director.length !== 0) { %>
         <div>
             <h4>Director</h4>
             <p><%=show.director%></p>
+            <!-- <form action="/auth/artists/< show.artist._id%>">
+                <button type="submit">Add to favorites</button>
+            </form> -->
         </div>
         <% } %>
         <% if (show.cast.length !== 0) { %>

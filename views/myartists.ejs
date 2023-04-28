@@ -11,6 +11,9 @@
             <div class="showbox">
                 <img src="<%=artist.image%>" alt="Photo of <%=artist.name%>">
                 <p><%=artist.name%></p>
+                <form action="/auth/artists/<%-artist._id%>">
+                    <button type="submit">Remove from favorites</button>
+                </form>
             </div>
             </a>         
         <% }) %>

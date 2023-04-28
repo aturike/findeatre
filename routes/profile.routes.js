@@ -44,10 +44,9 @@ router.get("/myshows", isLoggedIn, async (req, res, next) => {
   }
 });
 
-/* GET show details page from Profile */
 
 /* GET show details page from Profile*/
-router.get(`/myshows/:showId`, async (req, res) => {
+router.get("/myshows/:showId", async (req, res) => {
   try {
     const isLoggedinValue = !!req.session.user;
     const show = await Show.findById(req.params.showId);
@@ -55,7 +54,7 @@ router.get(`/myshows/:showId`, async (req, res) => {
     if (!show) {
       res.redirect("/myshows");
     } else {
-      res.redirect("/shows/:showId");
+      res.redirect(`/shows/${req.params.showId}`);
     }
   } catch (error) {
     console.log(error);
@@ -86,7 +85,7 @@ router.get("/myartists", isLoggedIn, async (req, res, next) => {
   }
 });
 
-/* GET artist details page */
+/* GET artist details page from Profile */
 router.get("/myartists/:id", async (req, res) => {
   try {
     const isLoggedinValue = !!req.session.user;
@@ -95,7 +94,7 @@ router.get("/myartists/:id", async (req, res) => {
     if (!artist) {
       res.redirect("/myartists");
     } else {
-      res.redirect("/artists/:artistId");
+      res.redirect("/artists/req.params.artistId");
     }
   } catch (error) {
     console.log(error);

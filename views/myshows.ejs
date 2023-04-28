@@ -14,6 +14,9 @@
                     <p><%=show.title %></p>
                     <p><%=show.location%></p>
                     <p><%=show.city%></p>
+                    <form action="/auth/show/<%-show._id%>">
+                        <button type="submit">Remove from favorites</button>
+                    </form>
                 </div>
                 </a>         
             <% }) %>

@@ -65,6 +65,7 @@ router.post("/signup", isLoggedOut, async (req, res, next) => {
   }
 });
 
+/* Add a show to a user's favorite*/
 router.get("/show/:id", isLoggedIn, async (req, res, next) => {
   try {
     const userId = req.session.user.userId;
@@ -88,6 +89,37 @@ router.get("/show/:id", isLoggedIn, async (req, res, next) => {
     }
 
     res.redirect("/");
+  } catch (error) {
+    console.log(error);
+  }
+  req.params.id;
+});
+
+/* Add an artist to a user's favorite*/
+
+router.get("/artists/:id", isLoggedIn, async (req, res, next) => {
+  try {
+    const userId = req.session.user.userId;
+    const { favoriteartists } = await User.findById(userId).select({
+      favoriteartists: 1,
+      _id: 0,
+    });
+
+    const artistId = req.params.id;
+
+    if (favoriteartists.indexOf(artistId) === -1) {
+      await User.findByIdAndUpdate(userId, {
+        $push: { favoriteartists: artistId },
+      });
+      console.log("push", artistId);
+    } else {
+      await User.findByIdAndUpdate(userId, {
+        $pull: { favoriteartists: { $in: [artistId] } },
+      });
+      console.log("remove", artistId);
+    }
+
+    res.redirect("/artists");
   } catch (error) {
     console.log(error);
   }

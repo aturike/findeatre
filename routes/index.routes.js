@@ -71,25 +71,20 @@ router.get(`/artists/:artistId`, async (req, res) => {
     const artist = await Artist.findById(req.params.artistId);
     console.log("Here is the artist : " + artist);
 
-    const {artistshows} = await Artist.find()
+    const shows = await Artist.findById(req.params.artistId)
     .populate("shows")
     .select({
-      //$or: [
-      author: "William Shakespeare",
-      _id: 0,
-      //{director: "artistId"},
-      //{cast: "artistId"},
-      //]
+      shows: 1,
     });
     
-    console.log("Here are his shows : " + artistshows);
+    console.log("Here are his shows : " + shows);
 
     if (!artist) {
       res.redirect("/artists");
     } else {
       res.render("artistdetail", {
         artist, 
-        artistshows, 
+        shows, 
         isLogin: isLoggedinValue 
       });
     }

@@ -1,6 +1,6 @@
 <%- include("./partials/navbar.ejs") %>
 
-<h2>Create an account and follow some artists now:</h2>
+<h2>Follow some artists:</h2>
 <section class="citysection">
     <div class="showgrid">
         <% if (allartists.length === 0) { %>
@@ -12,7 +12,7 @@
                 <img src="<%=artist.image%>" alt="Photo of <%=artist.name%>">
                 <p><%=artist.name %></p>
                 <form action="/auth/artists/<%-artist._id%>">
-                    <button type="submit">Add to favourites</button>
+                    <button type="submit">Add to favorites</button>
                 </form>
             </div>
             </a>         
