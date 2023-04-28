@@ -94,7 +94,7 @@ router.get("/myartists/:id", async (req, res) => {
     if (!artist) {
       res.redirect("/myartists");
     } else {
-      res.redirect("/artists/req.params.artistId");
+      res.redirect(`/artists/${req.params.artistId}`);
     }
   } catch (error) {
     console.log(error);
