@@ -54,6 +54,26 @@ mongoose
   .then((result) => {
     console.log("Artist data updated", result);
   })
+  .then(() => {
+    return Show.find();
+  })
+  .then((shows) => {
+    return shows.forEach((show) => {
+      ["author", "director", "cast"].forEach((field) => {
+        //only works if the fields are arrays
+        show[field].forEach((artistName) => {
+          Artist.findOne({ name: artistName })
+            .then((artist) => {
+              if (artist) {
+                artist.shows.push(show._id);
+                artist.save();
+              }
+            })
+            .catch((err) => console.error(err));
+        });
+      });
+    });
+  })
   .catch((err) => {
     console.error("Error connecting to mongo: ", err);
   });
