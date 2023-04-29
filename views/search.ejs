@@ -4,7 +4,7 @@
 <div>   
     <button class="JSbutton" name="today">Today</button>
     <button class="JSbutton" name="thisweek">This week</button>
-    <button class="JSbutton" name="thismonth">this month</button>
+    <button class="JSbutton" name="thismonth">This month</button>
     <button class="JSbutton" name="nextmonth">Next month</button>
 </div>
 <div>
@@ -22,7 +22,7 @@
             <li><%- show.title %></li>
             <li><%- show.city %></li>
             <li><%- show.location %></li>
-            <li><%- show.date %></li>
+            <li><%- `${show.date.getDate()}-${show.date.getMonth()+1}-${show.date.getFullYear()}` %></li>
             <form action="/auth/show/<%-show._id%>">
                 <button type="submit">Add to favourites</button>
             </form>
@@ -30,21 +30,3 @@
      </div>
     <% }) %>
 </div>
-
-<!-- [
-  {
-    _id: new ObjectId("644b97e0d8f7cbdc791b8371"),
-    title: 'Romeo and Juliet',
-    author: [ 'William Shakespeare' ],
-    cast: [ 'Adam Turi', 'Solen Wanono' ],
-    city: 'Amsterdam',
-    createdAt: 2023-04-28T09:54:40.707Z,
-    date: 2023-04-28T00:00:00.000Z,
-    director: [],
-    image: '',
-    location: 'Internationaal Theater Amsterdam',
-    story: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-    updatedAt: 2023-04-28T13:59:46.792Z
-  }
-] -->
-
