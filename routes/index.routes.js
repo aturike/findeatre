@@ -84,7 +84,7 @@ router.get(`/artists/:artistId`, async (req, res) => {
     .select({
       shows: 1,
     })
-    .find({"shows.date" : {$gte: new Date()}} )
+    .find({ "shows.date" : "2023-05-01T00:00:00.000Z"} )
     .exec();
     
     console.log("Here are his upcoming shows : " + futureshows);

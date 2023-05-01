@@ -15,12 +15,13 @@
     <div class="detailbox">
         <div>
             <h4>Upcoming Shows</h4>
-            <% if (futureshows.futureshows) { %>
-                <p><%=futureshows.futureshows.title%></p>
-                <p><%=futureshows.futureshows.date%></p>
-            <% } else { %>
+            <% shows.shows.forEach(element => { %>
+                <% if(element.date > new Date()){ %>
+                    <p><%=shows.title%></p>
+                <% } else { %>
                 <p>No upcoming shows. Stay tuned!</p>
             <% } %>
+               <% }) %>
         </div>
         <div>
             <h4>Past Shows</h4>
