@@ -25,4 +25,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     authToggleButton.addEventListener("click", showSignup);
   }
+
+  if (window.location.pathname === "/search") {
+    const datefilterButton = document.querySelectorAll(".JSbutton");
+    const searchParams = new URLSearchParams(window.location.search).get(
+      "search"
+    );
+    const searchTermURI = `${window.location.pathname}?search=${searchParams}`;
+
+    datefilterButton.forEach((button) => {
+      button.addEventListener("click", () => {
+        window.location.replace(`${searchTermURI}&sortdate=${button.name}`);
+      });
+    });
+  }
 });

@@ -1,0 +1,32 @@
+<%- include("./partials/navbar.ejs") %>
+<button class="JSbutton" name="reset">Reset filter</button>
+<h2>What`s on</h2>
+<div>   
+    <button class="JSbutton" name="today">Today</button>
+    <button class="JSbutton" name="thisweek">This week</button>
+    <button class="JSbutton" name="thismonth">This month</button>
+    <button class="JSbutton" name="nextmonth">Next month</button>
+</div>
+<div>
+    <div>
+       <ul>
+        <li>Event</li>
+        <li>City</li>
+        <li>Location</li>
+        <li>Date</li>
+       </ul>
+    </div>
+    <% searchResultsArr.forEach(show => { %>
+     <div>
+        <ul>
+            <li><%- show.title %></li>
+            <li><%- show.city %></li>
+            <li><%- show.location %></li>
+            <li><%- `${show.date.getDate()}-${show.date.getMonth()+1}-${show.date.getFullYear()}` %></li>
+            <form action="/auth/show/<%-show._id%>">
+                <button type="submit">Add to favourites</button>
+            </form>
+        </ul>
+     </div>
+    <% }) %>
+</div>

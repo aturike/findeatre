@@ -44,7 +44,6 @@ router.get("/myshows", isLoggedIn, async (req, res, next) => {
   }
 });
 
-
 /* GET show details page from Profile*/
 router.get("/myshows/:showId", async (req, res) => {
   try {
@@ -65,19 +64,19 @@ router.get("/myshows/:showId", async (req, res) => {
 router.get("/myartists", isLoggedIn, async (req, res, next) => {
   try {
     const userId = req.session.user.userId;
-    const {favoriteartists} = await User.findById(userId)
-    .populate("favoriteartists")
-    .select({
-      favoriteartists: 1,
-      _id: 0,
-    });
+    const { favoriteartists } = await User.findById(userId)
+      .populate("favoriteartists")
+      .select({
+        favoriteartists: 1,
+        _id: 0,
+      });
 
     console.log(favoriteartists);
 
     const isLoggedin = !!req.session.user;
 
-    res.render("myartists", { 
-      favoriteartists: favoriteartists, 
+    res.render("myartists", {
+      favoriteartists: favoriteartists,
       isLogin: isLoggedin,
     });
   } catch (error) {
