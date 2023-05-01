@@ -15,18 +15,22 @@
     <div class="detailbox">
         <div>
             <h4>Upcoming Shows</h4>
-            <% if (futureshows.futureshows) { %>
-                <p><%=futureshows.futureshows.title%></p>
-                <p><%=futureshows.futureshows.date%></p>
+            <% if (futureshows.length !== 0) { %>
+                <% futureshows.forEach(futureshow => { %>
+                    <p><%=futureshow.title%></p>
+                    <p><%=futureshow.date%></p>
+                <% }) %>    
             <% } else { %>
                 <p>No upcoming shows. Stay tuned!</p>
             <% } %>
         </div>
         <div>
             <h4>Past Shows</h4>
-            <% if (shows.shows.length !== 0) { %>
-                <p><%=shows.shows.title%></p>
-                <p><%=shows.shows.date%></p>
+            <% if (pastshows.length !== 0) { %>
+                <% pastshows.forEach(pastshow => { %>
+                    <p><%=pastshow.title%></p>
+                    <p><%=pastshow.date%></p>
+                <% }) %> 
             <% } else { %>
                 <p>No past show yet. </p>
             <% } %>

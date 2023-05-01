@@ -71,7 +71,7 @@ router.get(`/artists/:artistId`, async (req, res) => {
     const artist = await Artist.findById(req.params.artistId);
     console.log("Here is the artist : " + artist);
 
-    const shows = await Artist.findById(req.params.artistId)
+    const {shows} = await Artist.findById(req.params.artistId)
     .populate("shows")
     .select({
       shows: 1,
@@ -79,23 +79,30 @@ router.get(`/artists/:artistId`, async (req, res) => {
 
     console.log("Here are his shows : " + shows);
 
-    const futureshows = await Artist.findById(req.params.artistId)
-    .populate("shows")
-    .select({
-      shows: 1,
-    })
-    .find({ "shows.date" : "2023-05-01T00:00:00.000Z"} )
-    .exec();
+  const futureshows = shows.filter((show) => {
+    const today = new Date();
+    today.setUTCHours(0, 0, 0, 0);
+    return show.date >= today;
+  });
     
     console.log("Here are his upcoming shows : " + futureshows);
 
+    const pastshows = shows.filter((show) => {
+      const today = new Date();
+      today.setUTCHours(0, 0, 0, 0);
+      return show.date < today;
+    });
+      
+      console.log("Here are his past shows : " + pastshows);
+  
     if (!artist) {
       res.redirect("/artists");
     } else {
       res.render("artistdetail", {
         artist, 
         shows,
-        futureshows, 
+        futureshows,
+        pastshows, 
         isLogin: isLoggedinValue 
       });
     }
