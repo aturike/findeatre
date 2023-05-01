@@ -23,12 +23,20 @@ mongoose
     console.log(`Connected to Mongo! Database name: "${databaseName}"`);
   })
   .then(() => {
-    const updateOperations = showdata.map((show) => {
+    const updateOperations = showdata.map((show, index) => {
       //  $set operator update the existing document
+      const flexDate = new Date();
+      flexDate.setUTCHours(0, 0, 0, 0);
+      const difShows = 4;
+      let addDays =
+        Math.floor(index / difShows) * 7 + Math.round(Math.random() * 3);
+
+      flexDate.setDate(flexDate.getDate() + addDays);
+
       return {
         updateOne: {
-          filter: { title: show.title },
-          update: { $set: show },
+          filter: { id: show.id },
+          update: { $set: { ...show, date: flexDate } },
           upsert: true, // creates new document if it doesn't exist
         },
       };

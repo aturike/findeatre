@@ -1,29 +1,38 @@
 [
   {
-    "title": "Romeo and Juliet",
-    "date": "2023-05-01T00:00:00.000Z",
+    "id": 1,
+    "title": "Kings of war",
+    "date": "",
     "city": "Amsterdam",
     "location": "Internationaal Theater Amsterdam",
-    "story": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+    "story": "In Kings of War, director Ivo van Hove focuses on political leadership. The original texts were retranslated by Rob Klinkenberg and then thoroughly adapted: the Hundred Years' War between England and France, and the Rose Wars between the houses of Lancaster and York for the English throne, which are emphatically present as a historical context in the original pieces, were referred to the background in the adaptation in order to accommodate a varied portrait of successive kings. As leaders in times of political instability and war, they show remarkable affinities with world leaders today. Kings of War is not a historical reconstruction, but a performance about power, ambition, leadership and responsibility; a performance in which leaders are confronted with the ultimate decision about the life and death of thousands of citizens and in which they rule from a sense of empathy and justice or are led by an unbridled lust for power.",
     "author": ["William Shakespeare"],
-    "director": [],
-    "image": "",
-    "cast": ["Adam Turi", "Solen Wanono"]
+    "director": ["Ivo van Hove"],
+    "image": "https://ita.nl/img/singles/_1200x630_crop_center-center_none/KOW_AMS_STU-WEST_11-05-2015_3539-Edit-Edit-Edit_3_update.jpg",
+    "cast": ["Gijs Scholten van Aschat", "Hélène Devos", "Janni Goslinga"]
   },
   {
-    "title": "Amsterdam: Magic Show",
-    "date": "2023-06-03T00:00:00.000Z",
+    "id": 2,
+    "title": "Jesus Christ Superstar",
+    "date": "",
     "city": "Amsterdam",
-    "location": "Boom Chicago",
-    "story": "Experience a night of unforgettable entertainment in the heart of Amsterdam with a ticket to the Amsterdam Magic Show. Watch in awe as legendary performers spin tricks before your eyes, and journey through their magical world at a 1920s cabaret theater.",
-    "author": [],
-    "director": [],
-    "image": "",
-    "cast": ["Alex Blackwood", "Fritz with Z", "Quintus, Arthur Gerards"]
+    "location": "DeLaMar Theater",
+    "story": "The iconic rock musical Jesus Christ Superstar is back! Thanks to the unforgettable music and lyrics by Andrew Lloyd Webber and Tim Rice, direction from internationally acclaimed director Ivo van Hove and a truly incredible cast, this show promises to be a theatre experience like no other. Jesus Chris Superstar follows Jesus (Jeangu Macrooy) as he becomes the leader of a socially engaged friend group, who stand up for the disadvantaged in society. This results in a new movement, a revolution. Prepare yourself for a spectacular show in which the original English score, uniquely staged and performed with a live orchestra, will move you like never before.",
+    "author": ["Andrew Lloyd Webber"],
+    "director": ["Ivo van Hove"],
+    "image": "https://assets.playbill.com/editorial/38543d0d69b74c2efc017d27db363e7d-ricardo-afonso-and-robert-tripolino-as-judas-and-jesus-and-company-in-jesus-christ-superstar-at-the-barbican-theatre.%20Designer%20Tom%20Scutt;%20Lighting%20Design%20Lee%20Cur.jpg",
+    "cast": [
+      "Jeangu Macrooy",
+      "Freek Bartels",
+      "Magtel de Laat",
+      "Alex Klaasen",
+      "Edwin Jonker"
+    ]
   },
   {
+    "id": 3,
     "title": "Mamma Mia! - De ABBA Musical",
-    "date": "2023-08-29T00:00:00.000Z",
+    "date": "",
     "city": "Paris",
     "location": "Stadstheatre de Kom",
     "story": "Mamma Mia! (promoted as Benny Andersson &amp; Björn Ulvaeus' Mamma Mia!) is a jukebox musical written by British playwright Catherine Johnson based on songs recorded by Swedish group ABBA and composed by Benny Andersson and Björn Ulvaeus, members of the band. The title of the musical is taken from the group's 1975 chart-topper \"Mamma Mia\". Ulvaeus and Andersson, who composed the original music for ABBA, were involved in the development of the show from the beginning. Singer Anni-Frid Lyngstad was involved financially in the production and she was also present at many of the premieres around the world.",
@@ -33,8 +42,9 @@
     "cast": ["Brigitte Heitzer", "René van Kooten"]
   },
   {
+    "id": 4,
     "title": "Sweeney Todd",
-    "date": "2023-05-21T00:00:00.000Z",
+    "date": "",
     "city": "Amsterdam",
     "location": "DeLaMar Theater",
     "story": "Sweeney Todd: The Demon Barber of Fleet Street (often referred to simply as Sweeney Todd) is a musical with music and lyrics by Stephen Sondheim and a book by Hugh Wheeler. It is based on the 1970 play Sweeny Todd by Christopher Bond. The character of Sweeney Todd first appeared in a Victorian penny dreadful titled The String of Pearls.\nSweeney Todd opened on Broadway in 1979 and in the West End in 1980. It won the Tony Award for Best Musical and Olivier Award for Best New Musical. It has been revived in many productions as well as inspiring a film adaptation. ",
