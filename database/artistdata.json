@@ -1,16 +1,114 @@
 [
-    {
-        "name": "William Shakespeare",
-        "bio": "William Shakespeare was a renowned English poet, playwright, and actor born in 1564 in Stratford-upon-Avon. His birthday is most commonly celebrated on 23 April (see When was Shakespeare born), which is also believed to be the date he died in 1616. Shakespeare was a prolific writer during the Elizabethan and Jacobean ages of British theatre (sometimes called the English Renaissance or the Early Modern Period). Shakespeare’s plays are perhaps his most enduring legacy, but they are not all he wrote. Shakespeare’s poems also remain popular to this day.",
-        "shows": [],
-        "newsSubscription": true,
-        "image": ""
-    },
-    {
-        "name": "Benny Andersson",
-        "bio": "Producer/songwriter/keyboardist Benny Andersson co-produced the mega-hits of '70s Swedish pop group ABBA along with fellow ABBA member Björn Ulvaeus. Listening to ABBA, one can hear a definite Phil Spector/Brian Wilson/Beach Boys influence (the dense vocal harmonies) on their records, understandable since Andersson cites the group as a favorite.",
-        "shows": [],
-        "newsSubscription": false,
-        "image": ""
-    }
+  {
+    "name": "William Shakespeare",
+    "bio": "William Shakespeare was a renowned English poet, playwright, and actor born in 1564 in Stratford-upon-Avon. His birthday is most commonly celebrated on 23 April (see When was Shakespeare born), which is also believed to be the date he died in 1616. Shakespeare was a prolific writer during the Elizabethan and Jacobean ages of British theatre (sometimes called the English Renaissance or the Early Modern Period). Shakespeare’s plays are perhaps his most enduring legacy, but they are not all he wrote. Shakespeare’s poems also remain popular to this day.",
+    "shows": [],
+    "newsSubscription": true,
+    "image": "https://anglotopia.net/wp-content/uploads/2014/11/WILLIAM-SHAKESPEAR-2122089b.jpg"
+  },
+  {
+    "name": "Gijs Scholten van Aschat",
+    "bio": "Scholten van Aschat played before at ITA in The wood, The cherry orchard, The Things that Pass, The year of cancer (nomination Louis d'Or), Husbands and wives, Roman Tragedies, The homecoming, After the rehearsal / Persona, The hidden force, The diary of the one who disappeared, Obsession, Children of the sun, And we'll never be parted, Disgrace, Danton's death, The Russians! (for which he was nominated for the Arlecchino), Cat on a hot tin roof, The Entertainer, Queen Lear, Long day's journey into night, Opening Night and Timon from Athens.",
+    "shows": [],
+    "newsSubscription": false,
+    "image": "https://voorstellingvanzaken.nl/wp-content/uploads/2018/12/profiel-gijs-scholten-van-aschat.jpg"
+  },
+  {
+    "name": "Hélène Devos",
+    "bio": "Devos played before at ITA in Oedipus, Kings of war, Roman Tragedies, Husbands and wives, Freud, Small souls, Othello, Ibsen house, The Fountainhead, The glass menagerie,The hidden force, The seagull, The pelican, Opening Night, The miser, The Russians!, Angels in America, The taming of the shrew, Mourning becomes Electra, A bride in the morning, Liliom, Queen Lear and And we will never be parted.",
+    "shows": [],
+    "newsSubscription": false,
+    "image": "https://ita.nl/img/singles/H%C3%A9l%C3%A8ne-Devos-%C2%A9-Fabian-Calis.jpg"
+  },
+  {
+    "name": "Janni Goslinga",
+    "bio": "She played before at ITA in Flight 49, Ibsen House, The Things that Pass, The cherry orchard, Roman Tragedies, Scenes from a marriage, From the life of the marionettes, The Fountainhead, Antigone-Kreon-Oedipus, All my sons, Antonioni Project, Glengarry Glen Ross, Summer trilogy, True love, The pelican, Mourning becomes Electra, The seagull, The Russians!, Disgrace, Othello, The Entertainer, Queen Lear, Cries and whispers, Nora, Liliom, Opening Night, A Streetcar Named Desire (Colombina), Perfect wedding, Denne, Huis van de toekomst, Drie zusters, Romeo en Julia, In two minds, Con amore, Mind the gap, Ruigoord, True love, Zonder titel, Stalker, Angst en ellende in het rijk van Kok, Closer, Oom Wanja, De meisjeskamer, Herakles, Zinsbegoocheling, Een soort Hades, Licht, Voorjaarsontwaken, Prometheus, Srebrenica!, Streetcar and Ilias. Goslinga was awarded the Colombina 2008 for her role in A Streetcar named Desire and nominated for a Theo d'Or in 2022 for her role in The Doctor. In addition to her work for ITA, Goslinga appeared in various television programmes such as Daar vliegen de panters [See the panthers fly] and Ernstige delicten [Serious offences], and in films such as De Noorderlingen [The Northerners] and Hoe overleef ik mezelf [How do I survive myself], as well as in some plays with other companies such as Nu [Now] at De Balie.",
+    "shows": [],
+    "newsSubscription": false,
+    "image": "https://ita.nl/img/singles/JANNI-GOSLINGA_05-09-2019_-1907-bewerkt.jpg"
+  },
+  {
+    "name": "Jeangu Macrooy",
+    "bio": "The seeds for Jeangu Macrooy's musical journey (Paramaribo, 1993) are planted when he receives a guitar from his parents at age thirteen. Shortly thereafter, a musical duo is formed with his twin brother Xillan. However, Jeangu’s musical ambitions turn out to transcend the music scene in his native Suriname, leading him to move to the Netherlands in 2014. There, he enters into a musical collaboration with Perquisite, who signs him to his label Unexpected Records and becomes his producer and manager. From the moment his debut EP Brave Enough (2016) is released, Jeangu’s career finds itself on the fast track. He is named 3FM Talent, performs as the supporting act for Blaudzun and Selah Sue, is a recurring guest on Dutch national television talk show De Wereld Draait Door, plays at Eurosonic Noorderslag and is nominated for Best New Artist at the Edison Pop Awards (Dutch Grammys).",
+    "shows": [],
+    "newsSubscription": false,
+    "image": "https://images0.persgroep.net/rcs/TgO4v9nJyId9sRlHdILZ-THJEGo/diocontent/167733170/_fitwidth/763?appId=93a17a8fd81db0de025c8abd1cca1279&quality=0.8"
+  },
+  {
+    "name": "Freek Bartels",
+    "bio": "Bartels started his education in 2001 at the MusicAllFactory in Tilburg. At the Music Department of the Koning Willem ll College in Tilburg, he already played the leading role as Joseph in the production of the same name. In 2004 he started studying Music Theater at the Fontys Conservatory of the Fontys University of the Arts in the same town, which he completed cum laude. His singing teacher is Edward Hoepelman. He received acting lessons from Marc Krone, Julia Bless and Roeland Vos. He took dance lessons with Dick Swanborn, Danielle Waijers, Caroline Neyndorff and André de Jong. He participated in various workshops by, among others, Paul Eenens, Maike Boerdam, Wieneke Remmers and Erwin Aarts. During his education, Bartels played the role of Tito in the play De Heilige Antonio by Arnon Grunberg. From 2001 Bartels played in two productions by Stichting Theaterplan Productions Eindhoven: in Fame (2001-2002) as Nick Piazza and in Pendragon (2002) as King Arthur. In 2004, he played the role of Clopin in Disney's Quasimodo. Bartels could then be seen as Roger Davis in the musical Rent (2007) and as Sjaak in the musical Into The Woods (2007), both produced by M-Lab. From April 2008 Bartels could be seen in the Luxor Theater, Rotterdam as Enjolras in Les Misérables. On October 26, 2008, Freek won the program Looking for Joseph, so he left Les Misérables prematurely on November 5. From November 22, 2008 he could be seen as Joseph in Joseph and the Amazing Technicolor Dreamcoat (premiered December 12, 2008). After this breakthrough with the general public, Freek played in various musicals, including Petticoat (Rogier van Rooden), Next to Normal (Gabe), Love Story (Oliver Barrett IV), Beauty and the Beast (Gaston), From Sammy With Love (Sammy Davis Jr. + other roles) and Diana & Sons (Harry).",
+    "shows": [],
+    "newsSubscription": false,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Freek_bartels-1457623493.jpg"
+  },
+  {
+    "name": "Magtel de Laat",
+    "bio": "De Laat was born and raised in Brabant and will study music theater at Fontys Fine and Performing Arts from 2016 to 2021. The actress is one of the sixteen candidates of the AVROTROS program Looking for Danny and Sandy. In this, the two new protagonists were sought for the musical Grease. De Laat makes it to the very last episode, but eventually comes second. The leading role of Sandy goes to Danique Graanoogst.",
+    "shows": [],
+    "newsSubscription": false,
+    "image": "https://www.theater.nl/assets/Uploads/Persfoto-Magtel-de-Laat-Beeld-Evely-Duis.jpg"
+  },
+  {
+    "name": "Alex Klaasen",
+    "bio": "Alex Klaasen is one of the most versatile makers of the moment; he is an actor, theater maker and singer and has already won several prestigious awards. He played in Het Klokhuis, Mission Earth and Welcome to the Golden Age, among others. He became famous with the role of Yari in Gooische `Women. In the cinema we saw him in Chez Nous and Het Verlangen, among others. In the theatre, Alex made and performed the cabaret program Next year you laugh, together with Martine Sandifort, with which he won Camerettes and the Pall Mall Export Prize in 2000. Alex also appeared in his solo performance Finally Alone and he made and played in the performance H.E.A.R. with Henry van Loon. Alex received six Musical Awards for his acting and also received Neerlands Hoop for Finally Alone. He also received the prestigious Johan Card Award from André van Duin. He wrote the lyrics for Long and Happy, Woef Side Story and De Gelaarsde Poes van het Ro Theater and also played the leading role in the performances.",
+    "shows": [],
+    "newsSubscription": false,
+    "image": "https://i0.wp.com/www.mokummagazine.nl/wp-content/uploads/2018/08/Alex-Klaasen1-c-Marthe-Hennink_2.jpg"
+  },
+  {
+    "name": "Edwin Jonker",
+    "bio": "Jonker studied history at the University of Amsterdam and then started acting. He started his acting career as a musical star in 2000 with the musical Rent, which won him a John Kraaijkamp Musical Award in 2001 for 'Best Supporting Actor' by Tom Collins. Jonker also started acting in films such as Oesters van Nam Kee and Loenatik: the movie with a small supporting role and played a regular role in the television series Trauma 24/7. In 2004 he provided the Dutch voice of Will Smith in the animated film Shark Tale. In 2015 he played the role of Romeo in the movie The Escape.[1] Jonker was married to Nurlaila Karim, together they have a son and daughter. In 2019 he played the role of Jesus at The Passion in Dordrecht.",
+    "shows": [],
+    "newsSubscription": false,
+    "image": "https://nl.wikipedia.org/wiki/Edwin_Jonker#/media/Bestand:Edwin_jonker-1491646463.jpg"
+  },
+  {
+    "name": "Ivo van Hove",
+    "bio": "Van Hove grew up in Kwaadmechelen. From the age of eleven he went to boarding school at the Klein Seminarie in Hoogstraten, where he also completed his secondary education. Since 1984 he has been a teacher and member of the artistic management of Dora van der Groen Education in Antwerp. In 1981 Van Hove started as a theater maker with his own productions. Since then he has been working with scenographer Jan Versweyveld, his life partner, whom he met during his education at Sint-Lucas. In Flanders, Van Hove was the artistic director of AKT, Akt-Vertikaal and De Tijd. From 1990 to 2000 he was artistic director of Het Zuidelijk Toneel in Eindhoven. From 1998 to 2004 he was also festival leader of the Holland Festival. Since 2001, Van Hove has been director of International Theater Amsterdam, formerly Toneelgroep Amsterdam. On September 1, 2019, he was a guest in the VPRO program Zomergasten, in which he was interviewed by Janine Abbring. His movie of choice was Opening Night.",
+    "shows": [],
+    "newsSubscription": false,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Ivovanhove675.jpg/800px-Ivovanhove675.jpg"
+  },
+  {
+    "name": "Andrew Lloyd Webber",
+    "bio": "Andrew Lloyd Webber, Baron Lloyd-Webber (born 22 March 1948), is an English composer and impresario of musical theatre.[1] Several of his musicals have run for more than a decade both in the West End and on Broadway. He has composed 21 musicals, a song cycle, a set of variations, two film scores, and a Latin Requiem Mass. Several of his songs have been widely recorded and were successful outside of their parent musicals, such as 'Memory' from Cats, 'The Music of the Night' and 'All I Ask of You' from The Phantom of the Opera, 'I Don't Know How to Love Him' from Jesus Christ Superstar, 'Don't Cry for Me Argentina' from Evita, and 'Any Dream Will Do' from Joseph and the Amazing Technicolor Dreamcoat. In 2001, The New York Times referred to him as 'the most commercially successful composer in history'. The Daily Telegraph ranked him the fifth most powerful person in British culture in 2008, lyricist Don Black writing Andrew more or less single-handedly reinvented the musical",
+    "shows": [],
+    "newsSubscription": false,
+    "image": "https://www.themoviedb.org/t/p/w500/zHYquxijksNGBAfFzq8gpzLNMYX.jpg"
+  },
+  {
+    "name": "Lucy McCormick",
+    "bio": "Lucy McCormick makes nightclub interruptions, cabaret interventions and extravaganza theatre shows, marrying interests in absurdity, feminism and the grotesque. Her practice is cross-genre, taking inspiration from theatre, performance art, comedy and dance. Her debut show Triple Threat established Lucy's practice as one of the UK’s most stand out new voices in experimental performance and toured to 31 venues around the world.  It was awarded the Take Me Somewhere Brick Award, Best Performer at Dublin Fringe, nominated for a Total Theatre and Off West End Awards, was in the The Guardian’s top 10 comedy shows of 2016, and was included within showcases at In Between Time (Bristol) and PUSH (Vancouver).  In this show, Lucy attempts to retell the story of the New Testament, taking on all the lead roles herself with the help of backing dancers, pop ballads and absurdist art. ",
+    "shows": [],
+    "newsSubscription": false,
+    "image": "https://www.themoviedb.org/t/p/w500/2jGJiq75Vn9uTPypUDgKJdv9hO5.jpg"
+  },
+  {
+    "name": "Ricardo Castro",
+    "bio": "Ricardo Castro is a Brazilian actor living in London. Born in Sao Paulo, he grew up in Lisbon, Portugal. He is experienced in acting, singing and dancing and has worked both on stage and screen. He received his training at the National Conservatoire and also attended the Associated Studios Academy of Performing Arts.",
+    "shows": [],
+    "newsSubscription": false,
+    "image": "https://media.londontheatredirect.com/Actor/RicardoCastro/actor-detail-image_19672.png"
+  },
+  {
+    "name": "Kandaka Moore",
+    "bio": "Kandaka has been with Actorum since she graduated from WAC Arts in July 2016, after completing the Diploma in Professional Musical Theatre which provided her with a solid foundation in acting, dancing and singing. Her theatre training credits have covered a range of roles including, Adela in Bernarda Alba Musical, Dionysus in The Bacchae and Boo in Yard Gal. She is an accomplished dancer, singer and choreographer as demonstrated by her music video appearances with Grammy award winning group Clean Bandit. Kandaka is an intelligent actress with a captivating stage and screen presence. She able to portray the sweet and sensitive through to the ruthless and gritty. Her fantastic physicality and effortless vocals complete the package.",
+    "shows": [],
+    "newsSubscription": false,
+    "image": "https://i0.wp.com/www.actorum.com/wp-content/uploads/2016/11/KM.jpg"
+  },
+  {
+    "name": "Sam Archer",
+    "bio": "Sam has been working extensively in theatre, dance, tv and film in the West End and around the world for the last 29 years.  His varied credits include west end musicals, plays, operas, tv dramas, big budget films and performing as a principal dancer with Matthew Bourne's New Adventures Company. Sam also works as a movement director and choreographer and teaches workshops for New Adventures and Wise Children, as well as his own 'storytelling through movement' workshops.",
+    "shows": [],
+    "newsSubscription": false,
+    "image": "http://www.samarcheruk.com/uploads/2/4/4/6/24464496/headshot-b-w_orig.jpg"
+  },
+  {
+    "name": "Matthew Bourne",
+    "bio": "Sir Matthew Bourne (OBE) is a British choreographer, dancer and artistic director of dance company, New Adventures. He is best known for his unique re-imaginings of traditional ballet, such as his 1995 production of Swan Lake, where he replaced the traditionally female corps-de-ballet with a male ensemble.[1] Swan Lake (Bourne) went on to be the longest running ballet in London's West End and New York City's Broadway.[2] The production earned him the title as the only British director to win both 'Best Choreographer' and 'Best Director' in the same year at the 1999 Tony Awards.[3] On the iconic appeal of Swan Lake at the time, The New Yorker said, 'what was important about the gender switch was that it made this old love story romantic again, by making it seem dangerous'. In 2016 he was knighted as part of Queen Elizabeth II 2016 New Year Honours list for 'Services to Dance'.[5] His admirers say that he has 'broadened the definition of ballet in a way that has consistently appealed to young audiences' Sarasota Herald-Tribune.",
+    "shows": [],
+    "newsSubscription": false,
+    "image": "http://www.samarcheruk.com/uploads/2/4/4/6/24464496/headshot-b-w_orig.jpg"
+  }
 ]
