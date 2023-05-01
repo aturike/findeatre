@@ -58,6 +58,7 @@ mongoose
     return Show.find();
   })
   .then((shows) => {
+    //It is a triple loop if the database gets bigger this has to be optimized.
     return shows.forEach((show) => {
       ["author", "director", "cast"].forEach((field) => {
         //only works if the fields are arrays
