@@ -76,15 +76,26 @@ router.get(`/artists/:artistId`, async (req, res) => {
     .select({
       shows: 1,
     });
-    
+
     console.log("Here are his shows : " + shows);
+
+    const futureshows = await Artist.findById(req.params.artistId)
+    .populate("shows")
+    .select({
+      shows: 1,
+    })
+    .find({"shows.date" : {$gte: new Date()}} )
+    .exec();
+    
+    console.log("Here are his upcoming shows : " + futureshows);
 
     if (!artist) {
       res.redirect("/artists");
     } else {
       res.render("artistdetail", {
         artist, 
-        shows, 
+        shows,
+        futureshows, 
         isLogin: isLoggedinValue 
       });
     }

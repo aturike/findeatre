@@ -88,7 +88,7 @@ router.get("/show/:id", isLoggedIn, async (req, res, next) => {
       console.log("remove", showId);
     }
 
-    res.redirect("/");
+    res.redirect('back');
   } catch (error) {
     console.log(error);
   }
@@ -119,7 +119,7 @@ router.get("/artists/:id", isLoggedIn, async (req, res, next) => {
       console.log("remove", artistId);
     }
 
-    res.redirect("/artists");
+    res.redirect('back');
   } catch (error) {
     console.log(error);
   }
