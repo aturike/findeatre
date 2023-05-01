@@ -42,15 +42,89 @@ nav {
 }
 
 /*Show details page*/
+/*CHanges by Adam*/
+
+.grey-box {
+  position: absolute;
+  width: 40dvw;
+  height: 100%;
+  top: 15%;
+  left: 2%;
+  z-index: -1;
+  background-color: gray;
+}
+
 .detailpage {
   display: grid;
-  grid-template: auto / 1.5fr 2fr;
-  gap: 10px;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto;
   margin: 10vh 1vw;
 }
 
-/*Show details page*/
+.detailbox-left {
+  position: relative;
+}
 
+.details-img {
+  height: 100%;
+  filter: brightness(60%);
+}
+
+.details-txt {
+  position: absolute;
+  color: white;
+  bottom: 10%;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.details-txt > h1 {
+  font-size: 3.5rem;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.details-txt > h3 {
+  margin: 0.5rem 0 2rem 0;
+  text-align: left;
+}
+
+.details-txt > h4 {
+  margin: 0;
+  text-align: justify;
+  line-height: 1.6rem;
+}
+
+.detailbox-right {
+  background-color: #e3223f;
+}
+
+.detailbox-right h3 {
+  color: black;
+  text-align: center;
+}
+
+.detailbox-right p {
+  color: white;
+}
+
+.detailbox-right hr {
+  width: 80%;
+  color: white;
+}
+
+.detailbox-dates > h3,
+.detailbox-dates > h5 {
+  color: white;
+  text-align: center;
+}
+
+.details-artists {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 /* Auth page */
 

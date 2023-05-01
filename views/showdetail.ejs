@@ -1,43 +1,58 @@
 <%- include("./partials/navbar.ejs") %>
+<div class="grey-box">
+
+</div>
 
 <section class="detailpage">
-    <div class="detailbox">
-        <img src="<%= show.image%>" alt="Photo of <%=show.title%>">
-        <h2><%=show.title %></h2>
-        <div>
-            <p><strong>Date:</strong> <%=show.date.toDateString()%></p>
-            <p><strong>Location:</strong> <%=show.location%></p>
-        </div>
+    <div class="detailbox-left">
+        <img class="details-img" src="<%= show.image%>" alt="Photo of <%=show.title%>">
+        <div class="details-txt">
+            <h1><%=show.title %></h1>
+            <h3 ><%=show.location%></h3>
+            <h4 ><%=show.story%></h4>
+        </div>     
     </div>
 
-    <div class="detailbox">
-        <div>
-            <h4>Synopsis</h4>
-            <p><%=show.story%></p>
+    <div class="detailbox-right">
+        <h3>Dates</h3>
+        <div class="detailbox-dates">
+            <h3><%=show.date.toDateString()%></h3>
+            <h5><%=show.location%></h5>
+            <hr>
         </div>
         <% if (show.author.length !== 0) { %>
-            <div>
-                <h4>Author</h4>
-                <p><%=show.author%></p>
+            <div class="details-artists">
+                <h3>Author</h3>
+                <%show.author.forEach(author=> { %>
+                    <p><%=author%></p>
+                <% }); %>  
                 <!-- <form action="/auth/artists/< show.artist._id%>">
                     <button type="submit">Add to favorites</button>
                 </form> -->
+                
             </div>
+            <hr>
         <% } %>
         <% if (show.director.length !== 0) { %>
-        <div>
-            <h4>Director</h4>
-            <p><%=show.director%></p>
+        <div class="details-artists">
+            <h3>Director</h3>
+            <%show.director.forEach(director=> { %>
+                <p><%=director%></p>
+            <% }); %>  
             <!-- <form action="/auth/artists/< show.artist._id%>">
                 <button type="submit">Add to favorites</button>
             </form> -->
         </div>
+        <hr>
         <% } %>
         <% if (show.cast.length !== 0) { %>
-        <div>
-            <h4>Cast</h4>
-            <p><%=show.cast%></p>
+        <div class="details-artists">
+            <h3>Cast</h3>
+            <%show.cast.forEach(cast => { %>
+                <p><%=cast%></p>
+            <% }); %>  
         </div>
+        <hr>
         <% } %>
     </div>
 </section>
