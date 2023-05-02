@@ -344,7 +344,7 @@ h2 {
 }
 
 .JSbtnmore:hover {
-  color: black;
+  color: #e3223f;
 }
 
 .show-story {
@@ -369,4 +369,69 @@ h2 {
 }
 .fav-btn img {
   height: 2rem;
+}
+
+/* Search page */
+
+.search-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  width: 95%;
+  row-gap: 10px;
+  border-bottom: 1px solid white;
+  padding-bottom: 0.8rem;
+}
+
+.search-table li {
+  justify-self: center;
+  align-self: center;
+  list-style-type: none;
+}
+
+.search-table li.fav-li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: start;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: start;
+  gap: 15px;
+  align-items: center;
+}
+
+.filter-buttons button {
+  padding: 0.5rem 0.8rem;
+  margin: 0;
+  margin-bottom: 2rem;
+  border-radius: 30px;
+  background-color: transparent;
+  box-shadow: none;
+  color: white;
+  border: 1px solid white;
+}
+
+.filter-buttons button:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+button.reset-button {
+  background-color: #e3223f;
+  border: 1px solid black;
+  color: white;
+}
+
+.search-table-header {
+  font-size: 1.6rem;
+  border-bottom: thick double white;
+  padding-bottom: 1rem;
+}
+
+.search-show-detail:hover {
+  color: #e3223f;
 }

@@ -1,40 +1,43 @@
 <%- include("./partials/navbar.ejs", {isLogin: false}) %>
+<div class="grey-box">
 
+</div>
 <section class="detailpage">
-    <div class="detailbox">
-        <img src="<%= artist.image%>" alt="Photo of <%=artist.name%>">
-        <h2><%=artist.name %></h2>
+    <div class="detailbox-left">
+        <img  class="details-img" src="<%= artist.image%>" alt="Photo of <%=artist.name%>">
+        <div class="details-txt">
+        <h1 class="animate__animated animate__fadeInUp"><%=artist.name %></h2>
         <% if (artist.bio.length !== 0) { %>
-            <div>
-                <h4>Bio</h4>
-                <p><%=artist.bio%></p>
-            </div>
+        <h4 class="animate__animated animate__fadeInUp"><%=artist.bio.slice(0,150)%>...<button class="JSbtnmore">More</button></h4>
         <% } %>
     </div>
+    </div>
 
-    <div class="detailbox">
-        <div>
-            <h4>Upcoming Shows</h4>
+    <div class="detailbox-right">
+            <h3 class="animate__animated animate__fadeInRight">Upcoming Shows</h3>
+            <div class="detailbox-dates">
             <% if (futureshows.length !== 0) { %>
                 <% futureshows.forEach(futureshow => { %>
-                    <p><%=futureshow.title%></p>
-                    <p><%=futureshow.date%></p>
+                    <h3 class="animate__animated animate__fadeInDown "><%=futureshow.title%></h3>
+                    <h5 class="animate__animated animate__fadeInDown "><%=futureshow.date.toDateString()%></h3>
                 <% }) %>    
             <% } else { %>
-                <p>No upcoming shows. Stay tuned!</p>
+                <h3>No upcoming shows. Stay tuned!</h3>
             <% } %>
-        </div>
-        <div>
-            <h4>Past Shows</h4>
+            </div>
+            <hr>
+            <h3>Past Shows</h3>
+            <div class="detailbox-dates">
             <% if (pastshows.length !== 0) { %>
                 <% pastshows.forEach(pastshow => { %>
-                    <p><%=pastshow.title%></p>
-                    <p><%=pastshow.date%></p>
+                    <h3><%=pastshow.title%></h3>
+                    <h5><%=pastshow.date.toDateString()%></h3>
                 <% }) %> 
             <% } else { %>
-                <p>No past show yet. </p>
+                <h3>No past show yet. </h3>
             <% } %>
-        </div>
+            </div>
+            <hr>
         <div>
             <% if (artist.newsSubscription == true) { %>
                 <p>Receive an alert when a new show is added</p>
@@ -44,3 +47,13 @@
         </div>
     </div>
 </section>
+
+<div class="show-story-bg">
+    <div style="position: absolute; right: 10%; cursor: pointer;">
+        <h1>x</h1>
+    </div>
+</div>
+
+<div class="show-story">
+    <h4 ><%=artist.bio%></h4>
+</div>
