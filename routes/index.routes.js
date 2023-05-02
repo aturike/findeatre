@@ -8,6 +8,8 @@ const User = require("../models/User.model")
 /* GET home page  listing all shows*/
 router.get("/", async (req, res, next) => {
   try {
+    const shows = await Show.find();
+
     const amsterdamShows = await Show.find()
       .sort({ date: 1 })
       .find({ city: "Amsterdam" })
@@ -20,15 +22,32 @@ router.get("/", async (req, res, next) => {
 
     const isLoggedin = !!req.session.user;
 
+    let isFavorite = {}
+
     if (req.session.user) {
       const user = await User.findById(req.session.user.userId);
-      console.log(user);
+
+      isFavorite = shows.map(show =>{
+        if(user.favoriteshows.indexOf(show._id) !== -1){
+          return {...show._doc, favorite: true}
+        } else {
+          return {...show._doc, favorite: false}
+        }
+      }) 
+    } else {
+      isFavorite = shows.map(show =>{
+      return {...show._doc, favorite: false}
+      })
     }
+    console.log(isFavorite)
+    
 
     res.render("index", {
+      shows: shows,
       amsterdamshows: amsterdamShows,
       parisshows: parisShows,
       isLogin: isLoggedin,
+      isfavorite: isFavorite
     });
   } catch (error) {
     console.log(error);

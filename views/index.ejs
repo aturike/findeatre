@@ -1,14 +1,13 @@
 <%- include("./partials/navbar.ejs") %>
 
-<h2>Upcoming shows in</h2>
+<h2>Upcoming shows</h2>
 <section class="citysection">
-    <h2>Amsterdam</h2>
 
     <div class="showgrid">
         <% if (amsterdamshows.length === 0) { %>
             <p>No upcoming show in Amsterdam!</p>
         <% } else { %>
-        <% amsterdamshows.forEach(show => { %>
+        <% isfavorite.forEach(show => { %>
             <a href="/shows/<%-show._id%>">
             <div class="showbox">
                 <img src="<%=show.image%>" alt="Photo of <%=show.title%>">
@@ -19,32 +18,16 @@
                 </div>
                 <div class="topright-position">
                     <form action="/auth/show/<%-show._id%>">
-                        <button type="submit" id="favouritebtn"><img src="/images/staricon-white.png" alt="Add to favourite"></button>
+                        <button type="submit" id="favouritebtn">
+                            
+                        <% if (show.favorite === true) { %>
+                            <img src="/images/staricon-fullwhite.png" alt="Add to favourite">
+                        <% } else { %>
+                            <img src="/images/staricon-white.png" alt="Add to favourite">
+                        <% } %>
+                        </button>
                     </form>
                 </div>
-            </div>
-            </a>         
-        <% }) %>
-        <% } %>
-    </div>
-</section>
-
-<section class="citysection">
-    <h2>Paris</h2>
-    <div class="showgrid">
-        <% if (parisshows.length === 0) { %>
-            <p>No upcoming show in Paris!</p>
-        <% } else { %>
-        <% parisshows.forEach(show => { %>
-            <a href="/shows/<%-show._id%>">
-            <div class="showbox">
-                <img src="<%=show.image%>" alt="Photo of <%=show.title%>">
-                <p><%=show.date.toDateString()%></p>
-                <p><%=show.title %></p>
-                <p><%=show.location%></p>
-                <form action="/auth/show/<%-show._id%>">
-                    <button type="submit" id="favouritebtn"><img src="/images/staricon-white.png" alt="Add to favourite"></button>
-                </form>
             </div>
             </a>         
         <% }) %>
