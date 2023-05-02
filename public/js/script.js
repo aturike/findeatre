@@ -40,5 +40,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  if (window.location.pathname.match("/shows")) {
+    const moreBtn = document.querySelector(".JSbtnmore");
+    const modalBg = document.querySelector(".show-story-bg");
+    const modalTxt = document.querySelector(".show-story");
 
+    const showModal = () => {
+      modalBg.style.display = "block";
+      modalTxt.style.display = "block";
+    };
+
+    const hideModal = () => {
+      modalBg.style.display = "none";
+      modalTxt.style.display = "none";
+    };
+
+    moreBtn.addEventListener("click", showModal);
+    modalBg.addEventListener("click", hideModal);
+  }
 });

@@ -9,7 +9,7 @@
         <div class="details-txt">
             <h1><%=show.title %></h1>
             <h3 ><%=show.location%></h3>
-            <h4 ><%=show.story.slice(0,150)%>...<button>More</button></h4>
+            <h4 ><%=show.story.slice(0,150)%>...<button class="JSbtnmore">More</button></h4>
            
         </div>     
     </div>
@@ -19,8 +19,9 @@
         <div class="detailbox-dates">
             <h3><%=show.date.toDateString()%></h3>
             <h5><%=show.location%></h5>
-            <hr>
+            
         </div>
+        <hr>
         <h3>Author</h3>
         <% if (authorArr.length !== 0) { %>
             <div class="details-artists">
@@ -28,7 +29,7 @@
                     <div class="artist-id-div">
                         <a href="/artists/<%= author._id %>"><%=author.name%></a>
                         <form action="/auth/artists/<%= author._id%>">
-                            <button type="submit">Add to favorites</button>
+                            <button type="submit" class="fav-btn"><img src="/images/staricon-white.png" alt="Add to favourite"></button>
                         </form>
                     </div>
                 <% }); %>  
@@ -43,7 +44,7 @@
                 <div class="artist-id-div">
                     <a href="/artists/<%= director._id %>"><%=director.name%></a>
                     <form action="/auth/artists/<%= director._id%>">
-                        <button type="submit">Add to favorites</button>
+                        <button type="submit" class="fav-btn"><img src="/images/staricon-white.png" alt="Add to favourite"></button>
                     </form>
                 </div>
             <% }); %>  
@@ -52,37 +53,26 @@
         <% } %>
         <% if (castArr.length !== 0) { %>
             <h3>Cast</h3>
-        <div class="details-artists scroll">
+        <div class="details-artists scroll cast-grid">
             <%castArr.forEach(cast => { %>
                 <div class="artist-id-div">
                     <a href="/artists/<%= cast._id %>"><%=cast.name%></a>
                     <form action="/auth/artists/<%= cast._id%>">
-                        <button type="submit">Add to favorites</button>
+                        <button type="submit" class="fav-btn"><img src="/images/staricon-white.png" alt="Add to favourite"></button>
                     </form>
                 </div>
             <% }); %>  
-
-            <div>
-                <p>Test</p>
-            </div>
-            <div>
-                <p>Test</p>
-            </div>
-            <div>
-                <p>Test</p>
-            </div>
-            <div>
-                <p>Test</p>
-            </div>
-            <div>
-                <p>Test</p>
-            </div>
-        </div>
-        <hr>
+       
         <% } %>
+
     </div>
 
 </section>
+<div class="show-story-bg">
+    <div style="position: absolute; right: 10%; cursor: pointer;">
+        <h1>x</h1>
+    </div>
+</div>
 
 <div class="show-story">
     <h4 ><%=show.story%></h4>
