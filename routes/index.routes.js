@@ -34,11 +34,34 @@ router.get(`/shows/:showId`, async (req, res) => {
   try {
     const isLoggedinValue = !!req.session.user;
     const show = await Show.findById(req.params.showId);
-    console.log(show);
+    const artists = await Artist.find();
+    const castArr = [];
+    const authorArr = [];
+    const directorArr = [];
+
+    [...show.cast].forEach((castmember) => {
+      castArr.push(artists.filter((artist) => artist.name === castmember)[0]);
+    });
+
+    [...show.author].forEach((author) => {
+      authorArr.push(artists.filter((artist) => artist.name === author)[0]);
+    });
+
+    [...show.director].forEach((director) => {
+      directorArr.push(artists.filter((artist) => artist.name === director)[0]);
+    });
+
+    console.log(castArr);
     if (!show) {
       res.redirect("/shows");
     } else {
-      res.render("showdetail", { show, isLogin: isLoggedinValue });
+      res.render("showdetail", {
+        show,
+        isLogin: isLoggedinValue,
+        castArr,
+        authorArr,
+        directorArr,
+      });
     }
   } catch (error) {
     console.log(error);
@@ -48,9 +71,7 @@ router.get(`/shows/:showId`, async (req, res) => {
 /* GET all artists page listing all artists*/
 router.get("/artists", async (req, res, next) => {
   try {
-    const allartists = await Artist.find()
-      .sort({ name: 1 })
-      .exec();
+    const allartists = await Artist.find().sort({ name: 1 }).exec();
 
     const isLoggedin = !!req.session.user;
 
@@ -71,20 +92,20 @@ router.get(`/artists/:artistId`, async (req, res) => {
     const artist = await Artist.findById(req.params.artistId);
     console.log("Here is the artist : " + artist);
 
-    const {shows} = await Artist.findById(req.params.artistId)
-    .populate("shows")
-    .select({
-      shows: 1,
-    });
+    const { shows } = await Artist.findById(req.params.artistId)
+      .populate("shows")
+      .select({
+        shows: 1,
+      });
 
     console.log("Here are his shows : " + shows);
 
-  const futureshows = shows.filter((show) => {
-    const today = new Date();
-    today.setUTCHours(0, 0, 0, 0);
-    return show.date >= today;
-  });
-    
+    const futureshows = shows.filter((show) => {
+      const today = new Date();
+      today.setUTCHours(0, 0, 0, 0);
+      return show.date >= today;
+    });
+
     console.log("Here are his upcoming shows : " + futureshows);
 
     const pastshows = shows.filter((show) => {
@@ -92,18 +113,18 @@ router.get(`/artists/:artistId`, async (req, res) => {
       today.setUTCHours(0, 0, 0, 0);
       return show.date < today;
     });
-      
-      console.log("Here are his past shows : " + pastshows);
-  
+
+    console.log("Here are his past shows : " + pastshows);
+
     if (!artist) {
       res.redirect("/artists");
     } else {
       res.render("artistdetail", {
-        artist, 
+        artist,
         shows,
         futureshows,
-        pastshows, 
-        isLogin: isLoggedinValue 
+        pastshows,
+        isLogin: isLoggedinValue,
       });
     }
   } catch (error) {

@@ -20,39 +20,65 @@
             <h5><%=show.location%></h5>
             <hr>
         </div>
-        <% if (show.author.length !== 0) { %>
+        <h3>Author</h3>
+        <% if (authorArr.length !== 0) { %>
             <div class="details-artists">
-                <h3>Author</h3>
-                <%show.author.forEach(author=> { %>
-                    <p><%=author%></p>
+                <%authorArr.forEach(author=> { %>
+                    <div class="artist-id-div">
+                        <a href="/artists/<%= author._id %>"><%=author.name%></a>
+                        <form action="/auth/artists/<%= author._id%>">
+                            <button type="submit">Add to favorites</button>
+                        </form>
+                    </div>
                 <% }); %>  
-                <!-- <form action="/auth/artists/< show.artist._id%>">
-                    <button type="submit">Add to favorites</button>
-                </form> -->
                 
             </div>
             <hr>
         <% } %>
-        <% if (show.director.length !== 0) { %>
-        <div class="details-artists">
+        <% if (directorArr.length !== 0) { %>
             <h3>Director</h3>
-            <%show.director.forEach(director=> { %>
-                <p><%=director%></p>
+        <div class="details-artists"> 
+            <%directorArr.forEach(director=> { %>
+                <div class="artist-id-div">
+                    <a href="/artists/<%= director._id %>"><%=director.name%></a>
+                    <form action="/auth/artists/<%= director._id%>">
+                        <button type="submit">Add to favorites</button>
+                    </form>
+                </div>
             <% }); %>  
-            <!-- <form action="/auth/artists/< show.artist._id%>">
-                <button type="submit">Add to favorites</button>
-            </form> -->
         </div>
         <hr>
         <% } %>
-        <% if (show.cast.length !== 0) { %>
-        <div class="details-artists">
+        <% if (castArr.length !== 0) { %>
             <h3>Cast</h3>
-            <%show.cast.forEach(cast => { %>
-                <p><%=cast%></p>
+        <div class="details-artists scroll">
+            <%castArr.forEach(cast => { %>
+                <div class="artist-id-div">
+                    <a href="/artists/<%= cast._id %>"><%=cast.name%></a>
+                    <form action="/auth/artists/<%= cast._id%>">
+                        <button type="submit">Add to favorites</button>
+                    </form>
+                </div>
             <% }); %>  
+
+            <div>
+                <p>Test</p>
+            </div>
+            <div>
+                <p>Test</p>
+            </div>
+            <div>
+                <p>Test</p>
+            </div>
+            <div>
+                <p>Test</p>
+            </div>
+            <div>
+                <p>Test</p>
+            </div>
         </div>
         <hr>
         <% } %>
     </div>
+
 </section>
