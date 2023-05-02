@@ -39,4 +39,29 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+
+
+// Favourite Button
+const favouriteBtn=document.querySelectorAll('#favouritebtn')
+//isFavourite = LINK TO DATABASE INFO
+
+let isFavourite = false
+
+
+favouriteBtn.forEach(favBtn =>{
+  favBtn.addEventListener('click', () =>{
+  
+    isFavourite = !isFavourite
+    if(isFavourite) {
+      favouriteBtn.style.display='none'
+      console.log("Hello there")
+    } else {
+      favouriteBtn.setAttribute("style", "filter: brightness(0.5)")
+    }
+  })
+})
+
+
+
 });
