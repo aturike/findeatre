@@ -10,15 +10,19 @@
                 <a href="/profile/myshows/<%-show._id%>">
                 <div class="showbox">
                     <img src="<%=show.image%>" alt="Photo of <%=show.title%>">
-                    <p><%=show.date.toDateString()%></p>
-                    <p><%=show.title %></p>
-                    <p><%=show.location%></p>
-                    <p><%=show.city%></p>
-                    <form action="/auth/show/<%-show._id%>">
+                    <div class="topleft-position">
+                        <p><%=show.date.toDateString()%></p>
+                        <h2><%=show.title %></h2>
+                        <p><%=show.location%></p>
+                        <p><%=show.city%></p>
+                    </div>
+                    <div class="topright-position">
+                        <form action="/auth/show/<%-show._id%>">
                         <button type="submit">
                             <img src="/images/staricon-fullwhite.png" alt="Remove from favourite">
                         </button>
                     </form>
+                    </div>  
                 </div>
                 </a>         
             <% }) %>

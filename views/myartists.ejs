@@ -10,12 +10,16 @@
             <a href="/artists/<%-artist._id%>">
             <div class="showbox">
                 <img src="<%=artist.image%>" alt="Photo of <%=artist.name%>">
-                <p><%=artist.name%></p>
-                <form action="/auth/artists/<%-artist._id%>">
-                    <button type="submit" id="favouritebtn">
-                        <img src="/images/staricon-fullwhite.png" alt="Remove from favourite">
-                    </button>
-                </form>
+                <div class="topleft-position">
+                    <h2><%=artist.name%></h2>
+                </div>      
+                <div class="topright-position">
+                    <form action="/auth/artists/<%-artist._id%>">
+                        <button type="submit" id="favouritebtn">
+                            <img src="/images/staricon-fullwhite.png" alt="Remove from favourite">
+                        </button>
+                    </form>
+                </div>
             </div>
             </a>         
         <% }) %>
