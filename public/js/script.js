@@ -39,4 +39,22 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
 });
+
+// Favourite Button
+
+window.addEventListener('load', () => {
+const favouriteBtn=document.querySelector('#favouritebtn')
+isFavourite = false
+
+favouriteBtn.addEventListener('click', () =>{
+  isFavourite = !isFavourite
+  if(isFavourite) {
+    favouriteBtn.setAttribute("style", "filter: brightness(1)")
+  } else {
+    favouriteBtn.setAttribute("style", "filter: brightness(0.5)")
+  }
+})
+
+})

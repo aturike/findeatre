@@ -10,7 +10,7 @@ img {
 }
 
 a {
-  color: black;
+  color: white;
   text-decoration: none;
 }
 
@@ -61,3 +61,71 @@ nav {
 .sign-up {
   display: none;
 }
+
+/*CHANGES START HERE*/
+
+/* Body full page */
+body {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  margin: 2% 0;
+}
+
+/*Page with all shows*/
+.citysection {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 5% 0;
+}
+
+.showgrid {
+  margin: 0 0 5% 0;
+}
+
+
+.showbox {
+  position: relative;
+  padding: 5%;
+}
+
+.showbox img {
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
+}
+
+.topleft-position {
+  position: absolute;
+  top: 8px;
+  left: 20px;
+}
+
+.topright-position p {
+  margin: 0;
+}
+
+.topright-position {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+}
+
+.topright-position button {
+  background-color: transparent;
+  height: 7vh;
+  width: 7vw;
+  border: none;
+  padding: 0;
+}
+
+.topright-position img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+

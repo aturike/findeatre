@@ -12,12 +12,16 @@
             <a href="/shows/<%-show._id%>">
             <div class="showbox">
                 <img src="<%=show.image%>" alt="Photo of <%=show.title%>">
-                <p><%=show.date.toDateString()%></p>
-                <p><%=show.title %></p>
-                <p><%=show.location%></p>
-                <form action="/auth/show/<%-show._id%>">
-                    <button type="submit">Add to favorites</button>
-                </form>
+                <div class="topleft-position">
+                    <p><%=show.date.toDateString()%></p>
+                    <h2><%=show.title %></h2>
+                    <p><%=show.location%></p>
+                </div>
+                <div class="topright-position">
+                    <form action="/auth/show/<%-show._id%>">
+                        <button type="submit" id="favouritebtn"><img src="/images/staricon-white.png" alt="Add to favourite"></button>
+                    </form>
+                </div>
             </div>
             </a>         
         <% }) %>
@@ -39,7 +43,7 @@
                 <p><%=show.title %></p>
                 <p><%=show.location%></p>
                 <form action="/auth/show/<%-show._id%>">
-                    <button type="submit">Add to favorites</button>
+                    <button type="submit" id="favouritebtn"><img src="/images/staricon-white.png" alt="Add to favourite"></button>
                 </form>
             </div>
             </a>         
