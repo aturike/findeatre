@@ -33,6 +33,8 @@ router.get("/myshows", isLoggedIn, async (req, res, next) => {
 
     const isLoggedin = !!req.session.user;
 
+
+
     res.render("myshows", {
       amsterdamshows: amsterdamShows,
       parisshows: parisShows,

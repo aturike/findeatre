@@ -136,8 +136,6 @@ nav {
   display: none;
 }
 
-/*CHANGES START HERE*/
-
 /* Body full page */
 body {
   background-color: black;
@@ -150,15 +148,15 @@ h2 {
   margin: 2% 0;
 }
 
-/*Page with all shows*/
+/*Page with all shows and all artists*/
 .citysection {
   display: flex;
   flex-direction: column;
-  margin: 0 0 5% 0;
+  margin: 0;
 }
 
 .showgrid {
-  margin: 0 0 5% 0;
+  margin: 0;
 }
 
 
@@ -171,28 +169,29 @@ h2 {
   width: 100%;
   height: 40vh;
   object-fit: cover;
+  object-position: center top;
 }
 
 .topleft-position {
   position: absolute;
-  top: 8px;
-  left: 20px;
+  top: 4vh;
+  left: 2.5vw;
 }
 
-.topright-position p {
+.topleft-position p {
   margin: 0;
 }
 
 .topright-position {
   position: absolute;
-  top: 15px;
-  right: 10px;
+  top: 4vh;
+  right: 1vw;
 }
 
 .topright-position button {
   background-color: transparent;
-  height: 7vh;
-  width: 7vw;
+  height: 5vh;
+  width: 5vw;
   border: none;
   padding: 0;
 }
@@ -201,6 +200,33 @@ h2 {
   max-width: 90%;
   max-height: 90%;
   object-fit: contain;
+  object-position: center top;
+}
+
+.topright-position :hover {
+  width: 6vw;
+  height: 6vh;
+}
+
+.bottomcenter-position {
+  position: absolute;
+  bottom: 7vh;
+  left: 12vw;
+  border: 3px solid white;
+  border-radius: 30px;
+  text-align: center;
+  width: 10vw;
+}
+
+.bottomcenter-position p {
+  padding: 10% 15%;
+  margin: 0;
+  border-radius: 30px;
+}
+
+.bottomcenter-position :hover {
+  background-color: white;
+  color: black;
 }
 
 /*Changes by Adam*/
@@ -208,11 +234,11 @@ h2 {
 .grey-box {
   position: absolute;
   width: 40dvw;
-  height: 100%;
+  height: 80vh;
   top: 15%;
   left: 2%;
   z-index: -1;
-  background-color: gray;
+  background-color: rgb(237, 231, 228);
 }
 
 .detailpage {
@@ -224,12 +250,13 @@ h2 {
 
 .detailbox-left {
   position: relative;
-  height: 100%;
+  height: 70vh;
 }
 
 .details-img {
   height: 100%;
   filter: brightness(60%);
+  object-fit: cover;
 }
 
 .details-txt {
@@ -260,6 +287,11 @@ h2 {
 .detailbox-right {
   background-color: #e3223f;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  padding: 0;
 }
 
 .detailbox-right h3 {
@@ -272,7 +304,7 @@ h2 {
 }
 
 .detailbox-right hr {
-  width: 80%;
+  width: 75%;
   color: white;
 }
 
@@ -282,22 +314,60 @@ h2 {
   text-align: center;
 }
 
-.details-artists {
+.cast-grid {
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: 50% 50%;
   grid-template-rows: auto;
-  gap: 10px;
+  width: 95%;
+  row-gap: 10px;
+  max-height: 35%;
 }
 
 .artist-id-div {
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: left;
 }
 
 .scroll {
-  height: 100px;
-  overflow-y: scroll;
+  overflow-y: auto;
   scrollbar-color: rebeccapurple green;
   scrollbar-width: thin;
+}
+
+.JSbtnmore {
+  background-color: transparent;
+  color: white;
+  font-weight: 900;
+  border: none;
+  cursor: pointer;
+}
+
+.JSbtnmore:hover {
+  color: black;
+}
+
+.show-story {
+  display: none;
+  position: absolute;
+  inset: 20% 20%;
+  text-align: justify;
+  line-height: 1.8rem;
+}
+
+.show-story-bg {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: black;
+}
+
+.fav-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.fav-btn img {
+  height: 2rem;
 }
