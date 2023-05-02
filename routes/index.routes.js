@@ -3,6 +3,7 @@ const router = express.Router();
 
 const Show = require("../models/Show.model");
 const Artist = require("../models/Artist.model");
+const User = require("../models/User.model")
 
 /* GET home page  listing all shows*/
 router.get("/", async (req, res, next) => {
@@ -18,6 +19,11 @@ router.get("/", async (req, res, next) => {
       .exec();
 
     const isLoggedin = !!req.session.user;
+
+    if (req.session.user) {
+      const user = await User.findById(req.session.user.userId);
+      console.log(user);
+    }
 
     res.render("index", {
       amsterdamshows: amsterdamShows,
