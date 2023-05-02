@@ -13,12 +13,8 @@
                 <p><%=artist.name%></p>
                 <form action="/auth/artists/<%-artist._id%>">
                     <button type="submit" id="favouritebtn">
-                        <% if (artist.favorite === true) { %>
-                            <img src="/images/staricon-fullwhite.png" alt="Add to favourite">
-                        <% } else { %>
-                            <img src="/images/staricon-white.png" alt="Add to favourite">
-                        <% } %>
-                        </button>
+                        <img src="/images/staricon-fullwhite.png" alt="Remove from favourite">
+                    </button>
                 </form>
             </div>
             </a>         

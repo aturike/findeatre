@@ -63,28 +63,86 @@ router.get(`/shows/:showId`, async (req, res) => {
     const authorArr = [];
     const directorArr = [];
 
+    /* Toggle option on favourite button for cast*/
     [...show.cast].forEach((castmember) => {
       castArr.push(artists.filter((artist) => artist.name === castmember)[0]);
     });
 
+    let isFavoriteCast = {}
+
+    if (req.session.user) {
+      const user = await User.findById(req.session.user.userId);
+
+      isFavoriteCast = castArr.map(artist =>{
+        if(user.favoriteartists.indexOf(artist._id) !== -1){
+          return {...artist._doc, favorite: true}
+        } else {
+          return {...artist._doc, favorite: false}
+        }
+      }) 
+    } else {
+      isFavoriteCast = castArr.map(artist =>{
+      return {...artist._doc, favorite: false}
+      })
+    }
+
+    /* Toggle option on favourite button for authors*/
     [...show.author].forEach((author) => {
       authorArr.push(artists.filter((artist) => artist.name === author)[0]);
     });
 
+    let isFavoriteAuthor = {}
+
+    if (req.session.user) {
+      const user = await User.findById(req.session.user.userId);
+
+      isFavoriteAuthor = authorArr.map(artist =>{
+        if(user.favoriteartists.indexOf(artist._id) !== -1){
+          return {...artist._doc, favorite: true}
+        } else {
+          return {...artist._doc, favorite: false}
+        }
+      }) 
+    } else {
+      isFavoriteAuthor = authorArr.map(artist =>{
+      return {...artist._doc, favorite: false}
+      })
+    }
+
+    /* Toggle option on favourite button for directors*/
     [...show.director].forEach((director) => {
       directorArr.push(artists.filter((artist) => artist.name === director)[0]);
     });
 
-    console.log(castArr);
+    let isFavoriteDirector = {}
+
+    if (req.session.user) {
+      const user = await User.findById(req.session.user.userId);
+
+      isFavoriteDirector = directorArr.map(artist =>{
+        if(user.favoriteartists.indexOf(artist._id) !== -1){
+          return {...artist._doc, favorite: true}
+        } else {
+          return {...artist._doc, favorite: false}
+        }
+      }) 
+    } else {
+      isFavoriteDirector = directorArr.map(artist =>{
+      return {...artist._doc, favorite: false}
+      })
+    }
+
+
     if (!show) {
       res.redirect("/shows");
     } else {
       res.render("showdetail", {
         show,
         isLogin: isLoggedinValue,
-        castArr,
-        authorArr,
-        directorArr,
+        castArr: isFavoriteCast,
+        authorArr: isFavoriteAuthor,
+        directorArr: isFavoriteDirector,
+
       });
     }
   } catch (error) {

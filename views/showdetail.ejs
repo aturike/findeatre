@@ -29,7 +29,13 @@
                     <div class="artist-id-div">
                         <a href="/artists/<%= author._id %>"><%=author.name%></a>
                         <form action="/auth/artists/<%= author._id%>">
-                            <button type="submit" class="fav-btn"><img src="/images/staricon-white.png" alt="Add to favourite"></button>
+                            <button type="submit" class="fav-btn">
+                                <% if (author.favorite === true) { %>
+                                    <img src="/images/staricon-fullwhite.png" alt="Add to favourite">
+                                <% } else { %>
+                                    <img src="/images/staricon-white.png" alt="Add to favourite">
+                                <% } %>
+                            </button>
                         </form>
                     </div>
                 <% }); %>  
@@ -44,7 +50,13 @@
                 <div class="artist-id-div">
                     <a href="/artists/<%= director._id %>"><%=director.name%></a>
                     <form action="/auth/artists/<%= director._id%>">
-                        <button type="submit" class="fav-btn"><img src="/images/staricon-white.png" alt="Add to favourite"></button>
+                        <button type="submit" class="fav-btn">
+                            <% if (director.favorite === true) { %>
+                                <img src="/images/staricon-fullwhite.png" alt="Add to favourite">
+                            <% } else { %>
+                                <img src="/images/staricon-white.png" alt="Add to favourite">
+                            <% } %>
+                        </button>
                     </form>
                 </div>
             <% }); %>  
@@ -58,7 +70,13 @@
                 <div class="artist-id-div">
                     <a href="/artists/<%= cast._id %>"><%=cast.name%></a>
                     <form action="/auth/artists/<%= cast._id%>">
-                        <button type="submit" class="fav-btn"><img src="/images/staricon-white.png" alt="Add to favourite"></button>
+                        <button type="submit" class="fav-btn">
+                            <% if (cast.favorite === true) { %>
+                                <img src="/images/staricon-fullwhite.png" alt="Add to favourite">
+                            <% } else { %>
+                                <img src="/images/staricon-white.png" alt="Add to favourite">
+                            <% } %>
+                        </button>
                     </form>
                 </div>
             <% }); %>  
