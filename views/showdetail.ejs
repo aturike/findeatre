@@ -9,7 +9,8 @@
         <div class="details-txt">
             <h1><%=show.title %></h1>
             <h3 ><%=show.location%></h3>
-            <h4 ><%=show.story%></h4>
+            <h4 ><%=show.story.slice(0,150)%>...<button>More</button></h4>
+           
         </div>     
     </div>
 
@@ -82,3 +83,7 @@
     </div>
 
 </section>
+
+<div class="show-story">
+    <h4 ><%=show.story%></h4>
+</div>
