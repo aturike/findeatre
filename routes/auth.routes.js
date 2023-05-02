@@ -13,7 +13,8 @@ const passwordRegex =
 router.get("/login", isLoggedOut, (req, res, next) => {
   if (req.query.user === "error") {
     res.render("login", {
-      errorMessage: "You have to log in first to add shows to your favourites",
+      errorMessage:
+        "You have to log in first to add shows or artists to your favourites",
     });
   } else {
     res.render("login", { errorMessage: "" });
@@ -23,7 +24,7 @@ router.get("/login", isLoggedOut, (req, res, next) => {
 router.post("/login", isLoggedOut, async (req, res, next) => {
   try {
     const user = await User.findOne({ username: req.body.username });
-    console.log(user);
+
     if (!!user) {
       if (bcryptjs.compareSync(req.body.password, user.passwordHash)) {
         req.session.user = { username: user.username, userId: user._id };
@@ -42,8 +43,6 @@ router.post("/login", isLoggedOut, async (req, res, next) => {
 
 router.post("/signup", isLoggedOut, async (req, res, next) => {
   try {
-    console.log(req.body.password);
-
     if (passwordRegex.test(req.body.password)) {
       const salt = await bcryptjs.genSalt(9);
       const passwordHash = bcryptjs.hashSync(req.body.password, salt);
@@ -88,7 +87,7 @@ router.get("/show/:id", isLoggedIn, async (req, res, next) => {
       console.log("remove", showId);
     }
 
-    res.redirect('back');
+    res.redirect("back");
   } catch (error) {
     console.log(error);
   }
@@ -119,7 +118,7 @@ router.get("/artists/:id", isLoggedIn, async (req, res, next) => {
       console.log("remove", artistId);
     }
 
-    res.redirect('back');
+    res.redirect("back");
   } catch (error) {
     console.log(error);
   }

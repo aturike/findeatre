@@ -19,25 +19,9 @@ router.get("/myshows", isLoggedIn, async (req, res, next) => {
         _id: 0,
       });
 
-    console.log(favoriteshows);
-
-    const amsterdamShows = await Show.find()
-      .sort({ date: 1 })
-      .find({ city: "Amsterdam" })
-      .exec();
-
-    const parisShows = await Show.find()
-      .sort({ date: 1 })
-      .find({ city: "Paris" })
-      .exec();
-
     const isLoggedin = !!req.session.user;
 
-
-
     res.render("myshows", {
-      amsterdamshows: amsterdamShows,
-      parisshows: parisShows,
       favoriteshows: favoriteshows,
       isLogin: isLoggedin,
     });
@@ -51,7 +35,7 @@ router.get("/myshows/:showId", async (req, res) => {
   try {
     const isLoggedinValue = !!req.session.user;
     const show = await Show.findById(req.params.showId);
-    console.log(show);
+
     if (!show) {
       res.redirect("/myshows");
     } else {
@@ -73,8 +57,6 @@ router.get("/myartists", isLoggedIn, async (req, res, next) => {
         _id: 0,
       });
 
-    console.log(favoriteartists);
-
     const isLoggedin = !!req.session.user;
 
     res.render("myartists", {
@@ -89,9 +71,7 @@ router.get("/myartists", isLoggedIn, async (req, res, next) => {
 /* GET artist details page from Profile */
 router.get("/myartists/:id", async (req, res) => {
   try {
-    const isLoggedinValue = !!req.session.user;
     const artist = await Artist.findById(req.params.artistId);
-    console.log(artist);
     if (!artist) {
       res.redirect("/myartists");
     } else {

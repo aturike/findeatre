@@ -3,7 +3,7 @@ const router = express.Router();
 
 const Show = require("../models/Show.model");
 const Artist = require("../models/Artist.model");
-const User = require("../models/User.model")
+const User = require("../models/User.model");
 
 /* GET home page  listing all shows*/
 router.get("/", async (req, res, next) => {
@@ -22,31 +22,30 @@ router.get("/", async (req, res, next) => {
 
     const isLoggedin = !!req.session.user;
 
-    let isFavorite = {}
+    let isFavorite = {};
 
     if (req.session.user) {
       const user = await User.findById(req.session.user.userId);
 
-      isFavorite = shows.map(show =>{
-        if(user.favoriteshows.indexOf(show._id) !== -1){
-          return {...show._doc, favorite: true}
+      isFavorite = shows.map((show) => {
+        if (user.favoriteshows.indexOf(show._id) !== -1) {
+          return { ...show._doc, favorite: true };
         } else {
-          return {...show._doc, favorite: false}
+          return { ...show._doc, favorite: false };
         }
-      }) 
+      });
     } else {
-      isFavorite = shows.map(show =>{
-      return {...show._doc, favorite: false}
-      })
+      isFavorite = shows.map((show) => {
+        return { ...show._doc, favorite: false };
+      });
     }
-    
 
     res.render("index", {
       shows: shows,
       amsterdamshows: amsterdamShows,
       parisshows: parisShows,
       isLogin: isLoggedin,
-      isfavorite: isFavorite
+      isfavorite: isFavorite,
     });
   } catch (error) {
     console.log(error);
@@ -75,7 +74,6 @@ router.get(`/shows/:showId`, async (req, res) => {
       directorArr.push(artists.filter((artist) => artist.name === director)[0]);
     });
 
-    console.log(castArr);
     if (!show) {
       res.redirect("/shows");
     } else {
@@ -99,22 +97,22 @@ router.get("/artists", async (req, res, next) => {
 
     const isLoggedin = !!req.session.user;
 
-    let isFavoriteArtist = {}
+    let isFavoriteArtist = {};
 
     if (req.session.user) {
       const user = await User.findById(req.session.user.userId);
 
-      isFavoriteArtist = allartists.map(artist =>{
-        if(user.favoriteartists.indexOf(artist._id) !== -1){
-          return {...artist._doc, favorite: true}
+      isFavoriteArtist = allartists.map((artist) => {
+        if (user.favoriteartists.indexOf(artist._id) !== -1) {
+          return { ...artist._doc, favorite: true };
         } else {
-          return {...artist._doc, favorite: false}
+          return { ...artist._doc, favorite: false };
         }
-      }) 
+      });
     } else {
-      isFavoriteArtist = allartists.map(artist =>{
-      return {...artist._doc, favorite: false}
-      })
+      isFavoriteArtist = allartists.map((artist) => {
+        return { ...artist._doc, favorite: false };
+      });
     }
 
     res.render("allartists", {
@@ -133,7 +131,6 @@ router.get(`/artists/:artistId`, async (req, res) => {
     const isLoggedinValue = !!req.session.user;
 
     const artist = await Artist.findById(req.params.artistId);
-    console.log("Here is the artist : " + artist);
 
     const { shows } = await Artist.findById(req.params.artistId)
       .populate("shows")
@@ -141,23 +138,17 @@ router.get(`/artists/:artistId`, async (req, res) => {
         shows: 1,
       });
 
-    console.log("Here are his shows : " + shows);
-
     const futureshows = shows.filter((show) => {
       const today = new Date();
       today.setUTCHours(0, 0, 0, 0);
       return show.date >= today;
     });
 
-    console.log("Here are his upcoming shows : " + futureshows);
-
     const pastshows = shows.filter((show) => {
       const today = new Date();
       today.setUTCHours(0, 0, 0, 0);
       return show.date < today;
     });
-
-    console.log("Here are his past shows : " + pastshows);
 
     if (!artist) {
       res.redirect("/artists");
