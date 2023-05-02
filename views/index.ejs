@@ -1,11 +1,10 @@
 <%- include("./partials/navbar.ejs") %>
 
-<h2>Upcoming shows</h2>
+<h1>All Upcoming Shows</h1>
 <section class="citysection">
-
     <div class="showgrid">
         <% if (amsterdamshows.length === 0) { %>
-            <p>No upcoming show in Amsterdam!</p>
+            <p>No upcoming show in Amsterdam or Paris!</p>
         <% } else { %>
         <% isfavorite.forEach(show => { %>
             <a href="/shows/<%-show._id%>">
@@ -18,8 +17,7 @@
                 </div>
                 <div class="topright-position">
                     <form action="/auth/show/<%-show._id%>">
-                        <button type="submit" id="favouritebtn">
-                            
+                        <button type="submit" id="favouritebtn">                            
                         <% if (show.favorite === true) { %>
                             <img src="/images/staricon-fullwhite.png" alt="Add to favourite">
                         <% } else { %>
@@ -28,6 +26,10 @@
                         </button>
                     </form>
                 </div>
+                <div class="bottomcenter-position">
+                    <p>Read More</p>
+                </div>
+                
             </div>
             </a>         
         <% }) %>

@@ -39,7 +39,6 @@ router.get("/", async (req, res, next) => {
       return {...show._doc, favorite: false}
       })
     }
-    console.log(isFavorite)
     
 
     res.render("index", {
@@ -100,9 +99,28 @@ router.get("/artists", async (req, res, next) => {
 
     const isLoggedin = !!req.session.user;
 
+    let isFavoriteArtist = {}
+
+    if (req.session.user) {
+      const user = await User.findById(req.session.user.userId);
+
+      isFavoriteArtist = allartists.map(artist =>{
+        if(user.favoriteartists.indexOf(artist._id) !== -1){
+          return {...artist._doc, favorite: true}
+        } else {
+          return {...artist._doc, favorite: false}
+        }
+      }) 
+    } else {
+      isFavoriteArtist = allartists.map(artist =>{
+      return {...artist._doc, favorite: false}
+      })
+    }
+
     res.render("allartists", {
       allartists: allartists,
       isLogin: isLoggedin,
+      isfavoriteartist: isFavoriteArtist,
     });
   } catch (error) {
     console.log(error);

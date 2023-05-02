@@ -1,19 +1,32 @@
 <%- include("./partials/navbar.ejs") %>
 
-<h2>Follow some artists:</h2>
+<h1>All Artists</h1>
 <section class="citysection">
     <div class="showgrid">
         <% if (allartists.length === 0) { %>
             <p>No artists in the database.</p>
         <% } else { %>
-        <% allartists.forEach(artist => { %>
+        <% isfavoriteartist.forEach(artist => { %>
             <a href="/artists/<%-artist._id%>">
             <div class="showbox">
                 <img src="<%=artist.image%>" alt="Photo of <%=artist.name%>">
-                <p><%=artist.name %></p>
-                <form action="/auth/artists/<%-artist._id%>">
-                    <button type="submit">Add to favorites</button>
-                </form>
+                <div class="topleft-position">
+                    <h2><%=artist.name %></h2>
+                </div>
+                <div class="topright-position">
+                    <form action="/auth/artists/<%-artist._id%>">
+                        <button type="submit" id="favouritebtn">
+                        <% if (artist.favorite === true) { %>
+                            <img src="/images/staricon-fullwhite.png" alt="Add to favourite">
+                        <% } else { %>
+                            <img src="/images/staricon-white.png" alt="Add to favourite">
+                        <% } %>
+                        </button>
+                    </form>
+                </div>
+                <div class="bottomcenter-position">
+                    <p>Read More</p>
+                </div>
             </div>
             </a>         
         <% }) %>
