@@ -40,21 +40,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-});
+
 
 // Favourite Button
+const favouriteBtn=document.querySelectorAll('#favouritebtn')
+//isFavourite = LINK TO DATABASE INFO
 
-window.addEventListener('load', () => {
-const favouriteBtn=document.querySelector('#favouritebtn')
-isFavourite = false
+let isFavourite = false
 
-favouriteBtn.addEventListener('click', () =>{
-  isFavourite = !isFavourite
-  if(isFavourite) {
-    favouriteBtn.setAttribute("style", "filter: brightness(1)")
-  } else {
-    favouriteBtn.setAttribute("style", "filter: brightness(0.5)")
-  }
+
+favouriteBtn.forEach(favBtn =>{
+  favBtn.addEventListener('click', () =>{
+  
+    isFavourite = !isFavourite
+    if(isFavourite) {
+      favouriteBtn.style.display='none'
+      console.log("Hello there")
+    } else {
+      favouriteBtn.setAttribute("style", "filter: brightness(0.5)")
+    }
+  })
 })
 
-})
+
+
+});
