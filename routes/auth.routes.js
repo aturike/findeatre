@@ -43,7 +43,7 @@ router.post("/login", isLoggedOut, async (req, res, next) => {
           userimagesrc: user.imagesrc,
         };
         console.log("Succesful log in");
-        res.redirect("/");
+        res.redirect("/home");
       } else {
         res.render("login", { errorMessage: "Invalid password" });
       }

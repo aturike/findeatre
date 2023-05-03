@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     };
 
-    if (errorURL) {
+    if (errorURL && errorURL !== "error") {
       toggledisplayArr.reverse();
       toggleButtontextArr.reverse();
 
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  if (window.location.pathname.match("/shows")) {
+  if (window.location.pathname.match("/shows/")) {
     const moreBtn = document.querySelector(".JSbtnmore");
     const modalBg = document.querySelector(".show-story-bg");
     const modalTxt = document.querySelector(".show-story");
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modalBg.addEventListener("click", hideModal);
   }
 
-  if (window.location.pathname.match("/artists")) {
+  if (window.location.pathname.match("/artists/")) {
     const moreBtn = document.querySelector(".JSbtnmore");
     const modalBg = document.querySelector(".show-story-bg");
     const modalTxt = document.querySelector(".show-story");
