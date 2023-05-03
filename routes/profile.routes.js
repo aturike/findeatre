@@ -88,4 +88,29 @@ router.get("/", isLoggedIn, (req, res) => {
   res.render("profile", { isLogin: true, user });
 });
 
+router.get("/profile/edit/email/:userid", isLoggedIn, (req, res) => {
+  const user = req.session.user;
+  res.render("profile", { isLogin: true, user });
+});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// Solen router
+
+router.get("/profile/edit/img/:userid", isLoggedIn, (req, res) => {
+  const user = req.session.user;
+  res.render("profile", { isLogin: true, user });
+});
+
 module.exports = router;
