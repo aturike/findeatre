@@ -87,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modalBg.addEventListener("click", hideModal);
   }
 
+  /* My profile: modify my email address */
   if (window.location.pathname === "/profile") {
     const editEmailbutton = document.querySelector(".JSbtnEdit");
     const submitEmailbutton = document.querySelector(".JSbtnSubmit");
@@ -105,5 +106,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     editEmailbutton.addEventListener("click", showhideForm);
     submitEmailbutton.addEventListener("click", showhideForm);
+  }
+
+  /* My profile: modify my photo */
+  if (window.location.pathname === "/profile") {
+    const editPhotobutton = document.querySelector(".JSbtnEditphoto");
+    const submitPhotobutton = document.querySelector(".JSbtnSubmitphoto");
+    const submitFormphoto = document.querySelector(".JSformEditphoto");
+    const photoStatic = document.querySelector(".JSphotoStatic");
+
+    const showhideForm = () => {
+      if (photoStatic.style.display === "none") {
+        photoStatic.style.display = "block";
+        submitFormphoto.style.display = "none";
+      } else {
+        photoStatic.style.display = "none";
+        submitFormphoto.style.display = "block";
+      }
+    };
+
+    editPhotobutton.addEventListener("click", showhideForm);
+    submitPhotobutton.addEventListener("click", showhideForm);
   }
 });

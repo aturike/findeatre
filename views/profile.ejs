@@ -1,25 +1,32 @@
 <%- include("./partials/navbar.ejs") %>
 
-<h2>My profile</h2>
+<h1>My profile</h1>
 <section class="profile-section">
     <div class="profile-photo">
-        <img src="<%= user.imagesrc %>" alt="profile-pic">
-        <form action="/profile/edit/img/<%= user._id %>" method="post" enctype="multipart/form-data">
-            <i class="fa-regular fa-camera" style="color: #fcfcfc;"></i>
+        <div class="JSphotoStatic">
+            <img src="<%= user.imagesrc %>" alt="profile-pic">
+            <button class="JSbtnEditphoto">
+                <i class="fa fa-camera fa-4x" style="color: #fcfcfc;"></i>
+            </button>
+        </div>
+        <form style="display: none;" action="/profile/edit/img/<%= user._id %>" method="post" enctype="multipart/form-data" class="JSformEditphoto">
+            <i class="fa fa-camera fa-4x" style="width:100px;color: #fcfcfc;"></i>
             <input type="file" name="imageUrl" accept="image/png, image/jpg">
-            <button type="submit">Edit</button>
+            <button type="submit" class="JSbtnSubmitphoto">Edit</button>
         </form>
     </div>
-    <div>
-        <h1>Hello <%= user.username %></h1>
+    <div class="profile-info">
+        <h2>Hello <%= user.username %></h2>
         <div>
             <div class="JSemailStatic">
-                <h2><%= user.email %></h2>
-                <button class="JSbtnEdit"><i class="fa-light fa-pencil" style="color: #ffffff;"></i></button>
+                <h3><%= user.email %></h3>
+                <button class="JSbtnEdit">
+                    <i class="fa fa-pencil-alt" style="font-size: 25px;color: white;"></i>
+                </button>
             </div>
             <form style="display: none;" class="JSformEdit" action="/profile/edit/email/<%= user._id %>" method="POST">
-                <input type="email" name="newMail">
-                <button class="JSbtnSubmit" type="submit">Edit email</button>
+                <input type="email" name="newMail" class="input-emailedit" placeholder="Type here your new email address...">
+                <button class="JSbtnSubmit" type="submit">Modify</button>
             </form>
         </div>
     </div>

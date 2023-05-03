@@ -102,6 +102,7 @@ nav {
 /* Profile Page */
 .profile-section {
   display: flex;
+  margin: 10% 0;
 }
 
 .profile-photo{
@@ -115,15 +116,55 @@ nav {
   height: 38vh;
 }
 
+.JSphotoStatic {
+  position: absolute;
+}
+
+.JSbtnEditphoto {
+  height: 10vh;
+  width: 5vw;
+  background-color: transparent;
+  border-style: none;
+  position: relative;
+  left: -50%;
+}
+
 .JSemailStatic {
   display: flex;
+  align-items: center;
+}
+
+.profile-section h2 {
+  font-size: 3em;
+  margin-bottom: 10%;
 }
 
 .JSbtnEdit {
   background-color: transparent;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border: none;
+  cursor: pointer;
+  pointer-events: painted;
+  margin: 0 5%;
+}
+
+.JSbtnSubmit {
+  color: white;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5em;
+}
+
+.input-emailedit {
+  border-style: none;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  background-color: transparent;
+  border: none;
+  color:#fff;
+  width: 28vw;
 }
 
 /* Page with all shows*/
