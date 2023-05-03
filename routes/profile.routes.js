@@ -83,14 +83,22 @@ router.get("/myartists/:id", async (req, res) => {
 });
 
 /* GET profile page from Profile */
-router.get("/", isLoggedIn, (req, res) => {
-  const user = req.session.user;
+router.get("/", isLoggedIn, async (req, res) => {
+  const userId = req.session.user.userId;
+  const user = await User.findById(userId);
   res.render("profile", { isLogin: true, user });
 });
 
-router.get("/profile/edit/email/:userid", isLoggedIn, (req, res) => {
-  const user = req.session.user;
-  res.render("profile", { isLogin: true, user });
+router.post("/edit/email/:userid", isLoggedIn, async (req, res) => {
+  try {
+    await User.findByIdAndUpdate(req.params.userid, {
+      email: req.body.newMail,
+    });
+    console.log("Succesfully changed email of user", req.params.userid);
+    res.redirect("/profile");
+  } catch (error) {
+    console.log(error);
+  }
 });
 //
 //
@@ -108,9 +116,30 @@ router.get("/profile/edit/email/:userid", isLoggedIn, (req, res) => {
 //
 // Solen router
 
-router.get("/profile/edit/img/:userid", isLoggedIn, (req, res) => {
+const uploader = require('../middleware/cloudinary.config.js');
+
+router.get("/edit/img/:userid", isLoggedIn, (req, res) => {
   const user = req.session.user;
   res.render("profile", { isLogin: true, user });
 });
+
+router.post("/edit/img/:userid", isLoggedIn, uploader.single("imageUrl"), async (req, res, next) => {
+  try {
+    const image = req.file.path;
+    await User.findByIdAndUpdate(req.params.userid, {
+      imagesrc : image,
+    })
+    res.redirect("/profile")
+  } catch (error) {
+    console.log(error)
+    res.redirect("/profile")
+  }
+
+  if (!req.file) {
+    console.log("there was an error uploading the file")
+    next(new Error('No file uploaded!'));
+    return;
+  }
+})
 
 module.exports = router;

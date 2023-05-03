@@ -86,4 +86,24 @@ document.addEventListener("DOMContentLoaded", () => {
     moreBtn.addEventListener("click", showModal);
     modalBg.addEventListener("click", hideModal);
   }
+
+  if (window.location.pathname === "/profile") {
+    const editEmailbutton = document.querySelector(".JSbtnEdit");
+    const submitEmailbutton = document.querySelector(".JSbtnSubmit");
+    const submitForm = document.querySelector(".JSformEdit");
+    const emailStatic = document.querySelector(".JSemailStatic");
+
+    const showhideForm = () => {
+      if (emailStatic.style.display === "none") {
+        emailStatic.style.display = "block";
+        submitForm.style.display = "none";
+      } else {
+        emailStatic.style.display = "none";
+        submitForm.style.display = "block";
+      }
+    };
+
+    editEmailbutton.addEventListener("click", showhideForm);
+    submitEmailbutton.addEventListener("click", showhideForm);
+  }
 });

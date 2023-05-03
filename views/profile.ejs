@@ -1,20 +1,22 @@
 <%- include("./partials/navbar.ejs") %>
 
 <div class="profile-photo-div">
- <img src="<%= user.userimagesrc %>" alt="profile-pic">
- <form action="/profile/edit/img/<% user.userId %>">
-    <input type="file">
-    <button>Edit</button>
+ <img src="<%= user.imagesrc %>" alt="profile-pic">
+ <form action="/profile/edit/img/<%= user._id %>" method="post" enctype="multipart/form-data">
+    <input type="file" name="imageUrl" accept="image/png, image/jpg">
+    <button type="submit">Edit</button>
  </form>
 </div>
 <div>
-    <h1><%= user.username %></h1>
+    <h1><%= user.name %></h1>
     <div>
-        <h2><%= user.useremail %></h2>
-        <button class="JSbtnEdit">Edit</button>
-        <form action="/profile/edit/email/<% user.userId %>">
-            <input type="email">
-            <button>Edit</button>
+        <div class="JSemailStatic">
+        <h2><%= user.email %></h2>
+        <button class="JSbtnEdit">Edit email</button>
+        </div>
+        <form style="display: none;" class="JSformEdit" action="/profile/edit/email/<%= user._id %>" method="POST">
+            <input type="email" name="newMail">
+            <button class="JSbtnSubmit" type="submit">Edit email</button>
         </form>
     </div>
 </div>
