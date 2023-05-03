@@ -52,5 +52,41 @@
     "image": "https://delamar.nl/media/8107/wuthering-heights-delamar-fotografie-steve-tanner-2.jpg?anchor=center&mode=crop&height=450&rnd=133217110470000000",
     "author": ["Emily Brontë"],
     "cast": ["Lucy McCormick", "Ricardo Castro", "Kandaka Moore", "Sam Archer"]
+  },
+  {
+    "id": 5,
+    "title": "Carmen",
+    "date": "",
+    "city": "Paris",
+    "location": "Opéra Bastille",
+    "story": "“Carmen will never surrender, born free, free will she die!” cries Bizet's heroine to Don José at the end of the opera. This irrepressible freedom, coupled with a need to live ever-more intensely, is strongly present in this production directed by Calixto Bieito. With Mérimée, Bieito retains the burning temperament of a woman who lives by small-time trafficking. A test for the ages in this timeless piece, the rebel bird is essentially a creature of our own times; a brazen and indomitable seductress and a product of social and masculine brutality, she lives life in the fast lane, avid for existence.",
+    "director": ["Henri Meilhac", "Ludovic Halévy"],
+    "image": "https://www.theatreinparis.com/uploads/images/spectacle/carmen-%C2%A9OdP-secondary4.jpg",
+    "author": ["Georges Bizet"],
+    "cast": ["Joseph Calleja", "Marc Labonnette"]
+  },
+  {
+    "id": 6,
+    "title": "Hello my name is (Le Prénom)",
+    "date": "",
+    "city": "Paris",
+    "location": "Théâtre Édouard VII",
+    "story": "Expecting father Vincent is dining with family and an old friend. While awaiting his perpetually-late wife, he announces their intended name for their first child, and that's when the evening takes a turn for the worse. Vincent quickly discovers the difference a simple name can make! As the dinner turns to chaos, old resentments are dug up and nicknames and namecalling become the name of the game. The French art of clever arguments sheds light on different perspectives and taboos that a simple name can hold, a comedy sure to leave audiences both chickling and thinking...",
+    "director": [],
+    "image": "https://www.theatreinparis.com/uploads/images/spectacle/hello-my-name-is-header.jpg",
+    "author": [],
+    "cast": []
+  },
+  {
+    "id": 7,
+    "title": "Hedda",
+    "date": "",
+    "city": "Paris",
+    "location": "Théâtre de l'Odéon",
+    "story": "With Hedda, a portrait of several women, Aurore Fattier immerses us in the last days of rehearsals for Ibsen's famous play Hedda Gabler. Laure Stijn, a theatre director in her forties, is staging the play. As the work progresses, memories of her sister Esther, a young actress who died fifteen years earlier, are revived. The videos and set design help create multiple mirror effects between fiction and reality. In this play, Aurore Fattier chooses not to depict a fascinating heroine confronting her tragic destiny. Rather, she questions this myth and invites us to find in Ibsen's work a different way of telling the story of a woman's life.",
+    "director": ["Aurore Fattier"],
+    "image": "https://www.theatre-odeon.eu/media/cache/resolve/image_banner/e54aa670-7d3a-4933-82b0-fb79918de9b8/v1/medias/eyJfcmFpbHMiOnsibWVzc2FnZSI6Ik1UTTRNREV3IiwiZXhwIjpudWxsLCJwdXIiOiJtZWRpYS9tZWRpYV9pZCJ9fQ==--fbeaffd93571da16cc906703c6c202bd0a14bb1ba37685c025bb202fb3811a3d/be00e7d550c6/190408-dscf0823-2.jpg",
+    "author": ["Henrik Ibsen"],
+    "cast": ["Fabrice Adde", "Delphine Bibet"]
   }
 ]
