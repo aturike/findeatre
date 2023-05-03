@@ -16,6 +16,12 @@ const userSchema = new Schema(
       lowercase: true,
       trim: true,
     },
+    imagesrc: {
+      type: String,
+      required: false,
+      default:
+        "https://www.opensds.io/wp-content/uploads/sites/18/2019/03/user-unknown-white-300x300.png",
+    },
     passwordHash: {
       type: String,
       required: true,

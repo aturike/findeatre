@@ -82,4 +82,10 @@ router.get("/myartists/:id", async (req, res) => {
   }
 });
 
+/* GET profile page from Profile */
+router.get("/", isLoggedIn, (req, res) => {
+  const user = req.session.user;
+  res.render("profile", { isLogin: true, user });
+});
+
 module.exports = router;

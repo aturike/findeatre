@@ -1,0 +1,20 @@
+<%- include("./partials/navbar.ejs") %>
+
+<div class="profile-photo-div">
+ <img src="<%= user.userimagesrc %>" alt="profile-pic">
+ <form action="/profile/edit/img/<% user.userId %>">
+    <input type="file">
+    <button>Edit</button>
+ </form>
+</div>
+<div>
+    <h1><%= user.username %></h1>
+    <div>
+        <h2><%= user.useremail %></h2>
+        <button class="JSbtnEdit">Edit</button>
+        <form action="/profile/edit/email/<% user.userId %>">
+            <input type="email">
+            <button>Edit</button>
+        </form>
+    </div>
+</div>

@@ -35,14 +35,14 @@ nav {
   margin: 0 1vw;
 }
 
-.search-box{
+.search-box {
   width: fit-content;
   height: fit-content;
   position: relative;
   margin-left: 5vw;
 }
 
-.input-search{
+.input-search {
   height: 40px;
   width: 40px;
   border-style: none;
@@ -51,18 +51,18 @@ nav {
   letter-spacing: 2px;
   outline: none;
   border-radius: 25px;
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   background-color: white;
   padding-right: 40px;
-  color:black;
+  color: black;
 }
-.input-search::placeholder{
-  color:rgba(255,255,255,.5);
+.input-search::placeholder {
+  color: rgba(255, 255, 255, 0.5);
   font-size: 18px;
   letter-spacing: 2px;
   font-weight: 100;
 }
-.btn-search{
+.btn-search {
   width: 50px;
   height: 50px;
   border-style: none;
@@ -73,23 +73,23 @@ nav {
   border-radius: 50%;
   position: absolute;
   right: 0px;
-  color:black ;
-  background-color:transparent;
-  pointer-events: painted;  
+  color: black;
+  background-color: transparent;
+  pointer-events: painted;
 }
-.btn-search:focus ~ .input-search{
+.btn-search:focus ~ .input-search {
   width: 300px;
   border-radius: 0px;
   background-color: transparent;
-  border-bottom:1px solid rgba(255,255,255,.5);
-  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
 }
-.input-search:focus{
+.input-search:focus {
   width: 300px;
   border-radius: 0px;
   background-color: transparent;
-  border-bottom:1px solid rgba(255,255,255,.5);
-  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 500ms cubic-bezier(0, 0.11, 0.35, 2);
 }
 
 /*Page with all shows*/
@@ -97,91 +97,6 @@ nav {
   display: grid;
   grid-template: auto / 1fr 1fr 1fr;
   gap: 10px;
-}
-
-/*Show details page*/
-/*CHanges by Adam*/
-
-.grey-box {
-  position: absolute;
-  width: 40dvw;
-  height: 100%;
-  top: 15%;
-  left: 2%;
-  z-index: -1;
-  background-color: gray;
-}
-
-.detailpage {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: auto;
-  margin: 10vh 1vw;
-}
-
-.detailbox-left {
-  position: relative;
-}
-
-.details-img {
-  height: 100%;
-  filter: brightness(60%);
-}
-
-.details-txt {
-  position: absolute;
-  color: white;
-  bottom: 10%;
-  width: 90%;
-  margin-left: 5%;
-}
-
-.details-txt > h1 {
-  font-size: 3.5rem;
-  margin-bottom: 0;
-  text-align: left;
-}
-
-.details-txt > h3 {
-  margin: 0.5rem 0 2rem 0;
-  text-align: left;
-}
-
-.details-txt > h4 {
-  margin: 0;
-  text-align: justify;
-  line-height: 1.6rem;
-}
-
-.detailbox-right {
-  background-color: #e3223f;
-}
-
-.detailbox-right h3 {
-  color: black;
-  text-align: center;
-}
-
-.detailbox-right p {
-  color: white;
-}
-
-.detailbox-right hr {
-  width: 80%;
-  color: white;
-}
-
-.detailbox-dates > h3,
-.detailbox-dates > h5 {
-  color: white;
-  text-align: center;
-}
-
-.details-artists {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 /* Auth page */
@@ -288,6 +203,7 @@ h2 {
 
 /*Changes by Adam*/
 
+/*Show details page*/
 .grey-box {
   position: absolute;
   width: 40dvw;

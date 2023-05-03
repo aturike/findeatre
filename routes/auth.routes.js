@@ -27,7 +27,12 @@ router.post("/login", isLoggedOut, async (req, res, next) => {
 
     if (!!user) {
       if (bcryptjs.compareSync(req.body.password, user.passwordHash)) {
-        req.session.user = { username: user.username, userId: user._id };
+        req.session.user = {
+          username: user.username,
+          userId: user._id,
+          useremail: user.email,
+          userimagesrc: user.imagesrc,
+        };
         console.log("Succesful log in");
         res.redirect("/");
       } else {
