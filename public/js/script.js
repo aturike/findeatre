@@ -2,10 +2,12 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   if (window.location.pathname === "/auth/login") {
-    const toggledisplayArr = ["block", "none"];
+    const toggledisplayArr = ["flex", "none"];
     const toggleButtontextArr = ["Sign up", "Log in"];
-    const authToggleButton = document.querySelector(".JSbutton");
+    const authToggleButton = document.querySelectorAll(".JSbutton");
     const authForms = document.querySelectorAll(".JSform");
+    const errorURL = new URLSearchParams(window.location.search).get("user");
+    const errorMessage = document.querySelectorAll(".JSerror");
 
     authForms.forEach((form, index) => {
       form.style.display = toggledisplayArr[index];
@@ -20,10 +22,30 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelectorAll(".JSform").forEach((form, index) => {
         form.style.display = toggledisplayArr[index];
       });
-      authToggleButton.innerText = toggleButtontextArr[0];
+      authToggleButton.forEach((button) => {
+        button.innerText = toggleButtontextArr[0];
+      });
+
+      errorMessage.forEach((error) => {
+        error.innerText = "";
+      });
     };
 
-    authToggleButton.addEventListener("click", showSignup);
+    if (errorURL) {
+      toggledisplayArr.reverse();
+      toggleButtontextArr.reverse();
+
+      document.querySelectorAll(".JSform").forEach((form, index) => {
+        form.style.display = toggledisplayArr[index];
+      });
+      authToggleButton.forEach((button) => {
+        button.innerText = toggleButtontextArr[0];
+      });
+    }
+
+    authToggleButton.forEach((button) => {
+      button.addEventListener("click", showSignup);
+    });
   }
 
   if (window.location.pathname === "/search") {

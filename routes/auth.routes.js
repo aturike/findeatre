@@ -16,6 +16,15 @@ router.get("/login", isLoggedOut, (req, res, next) => {
       errorMessage:
         "You have to log in first to add shows or artists to your favourites",
     });
+  } else if (req.query.user === "sign-up-error-pass") {
+    res.render("login", {
+      errorMessage:
+        "Password has to contain 1 Capital, 1 Number, 1 Special character and has to have a minimum length of 6",
+    });
+  } else if (req.query.user === "sign-up-error-user") {
+    res.render("login", {
+      errorMessage: "Username must be filled in",
+    });
   } else {
     res.render("login", { errorMessage: "" });
   }
@@ -48,21 +57,24 @@ router.post("/login", isLoggedOut, async (req, res, next) => {
 
 router.post("/signup", isLoggedOut, async (req, res, next) => {
   try {
-    if (passwordRegex.test(req.body.password)) {
-      const salt = await bcryptjs.genSalt(9);
-      const passwordHash = bcryptjs.hashSync(req.body.password, salt);
-
-      await User.create({
-        username: req.body.username,
-        email: req.body.email,
-        passwordHash,
-      });
-      res.redirect("/auth/login");
+    if (!req.body.username) {
+      const err = encodeURIComponent("sign-up-error-user");
+      res.redirect("/auth/login?user=" + err);
     } else {
-      res.render("login", {
-        errorMessage:
-          "Password has to have at least 1 capital, 1 number and least 6 long",
-      });
+      if (passwordRegex.test(req.body.password)) {
+        const salt = await bcryptjs.genSalt(9);
+        const passwordHash = bcryptjs.hashSync(req.body.password, salt);
+
+        await User.create({
+          username: req.body.username,
+          email: req.body.email,
+          passwordHash,
+        });
+        res.redirect("/auth/login");
+      } else {
+        const err = encodeURIComponent("sign-up-error-pass");
+        res.redirect("/auth/login?user=" + err);
+      }
     }
   } catch (error) {
     console.log(error);

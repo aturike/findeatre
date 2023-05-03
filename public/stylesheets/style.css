@@ -409,3 +409,52 @@ button.reset-button {
 .search-show-detail:hover {
   color: #e3223f;
 }
+
+/* Login page */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.login-form label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.3rem;
+}
+
+.login-form input {
+  width: 30dvh;
+  padding: 10px;
+}
+
+.signup-login-btn {
+  color: white;
+  background-color: transparent;
+  font-size: 1rem;
+  padding: 15px 25px;
+  border: 1px solid white;
+  margin-top: 1rem;
+}
+
+.signup-login-btn:hover {
+  color: black;
+  background-color: white;
+}
+
+.signup-login-btn:active {
+  background-color: white;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.login-signup-btn-div {
+  display: flex;
+  width: 40dvh;
+  justify-content: space-evenly;
+}
