@@ -7,18 +7,18 @@
     <div class="detailbox-left">
         <img class="details-img" src="<%= show.image%>" alt="Photo of <%=show.title%>">
         <div class="details-txt">
-            <h1 class="animate__animated animate__fadeInLeft"><%=show.title %></h1>
-            <h3 ><%=show.location%></h3>
-            <h4 ><%=show.story.slice(0,150)%>...<button class="JSbtnmore">More</button></h4>
+            <h1 class="animate__animated animate__fadeInUp"><%=show.title %></h1>
+            <h3 class="animate__animated animate__fadeInUp" ><%=show.location%></h3>
+            <h4  class="animate__animated animate__fadeInUp"><%=show.story.slice(0,150)%>...<button class="JSbtnmore">More</button></h4>
            
         </div>     
     </div>
 
     <div class="detailbox-right">
-        <h3>Dates</h3>
+        <h3 class="animate__animated animate__fadeInRight">Dates</h3>
         <div class="detailbox-dates">
-            <h3><%=show.date.toDateString()%></h3>
-            <h5><%=show.location%></h5>
+            <h3 class="animate__animated animate__fadeInDown "><%=show.date.toDateString()%></h3>
+            <h5 class="animate__animated animate__fadeInDown "><%=show.location%></h5>
             
         </div>
         <hr>

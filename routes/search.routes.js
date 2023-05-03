@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Show = require("../models/Show.model");
+const User = require("../models/User.model");
 
 // GET search page
 
@@ -69,7 +70,29 @@ router.get("/", async (req, res, next) => {
       .sort({ title: 1, date: 1 })
       .exec();
 
-    res.render("search", { searchResultsArr, isLogin: isLoggedinValue });
+    let searchUserFavShows;
+
+    if (req.session.user) {
+      const user = await User.findById(req.session.user.userId);
+
+      searchUserFavShows = searchResultsArr.map((show) => {
+        if (user.favoriteshows.indexOf(show._id) !== -1) {
+          return { ...show._doc, favorite: true };
+        } else {
+          return { ...show._doc, favorite: false };
+        }
+      });
+    } else {
+      searchUserFavShows = searchResultsArr.map((show) => {
+        return { ...show._doc, favorite: false };
+      });
+    }
+
+    res.render("search", {
+      searchUserFavShows,
+      isLogin: isLoggedinValue,
+      searchValue: req.query.search,
+    });
   } catch (error) {
     console.log(error);
   }

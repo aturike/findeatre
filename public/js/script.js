@@ -37,10 +37,38 @@ document.addEventListener("DOMContentLoaded", () => {
       button.addEventListener("click", () => {
         window.location.replace(`${searchTermURI}&sortdate=${button.name}`);
       });
+
+      const chosenButtonName = new URLSearchParams(window.location.search).get(
+        "sortdate"
+      );
+      if (button.name === chosenButtonName && button.name !== "reset") {
+        const chosenbutton = document.getElementsByName(button.name)[0];
+        chosenbutton.style.backgroundColor = "white";
+        chosenbutton.style.color = "black";
+      }
     });
   }
 
   if (window.location.pathname.match("/shows")) {
+    const moreBtn = document.querySelector(".JSbtnmore");
+    const modalBg = document.querySelector(".show-story-bg");
+    const modalTxt = document.querySelector(".show-story");
+
+    const showModal = () => {
+      modalBg.style.display = "block";
+      modalTxt.style.display = "block";
+    };
+
+    const hideModal = () => {
+      modalBg.style.display = "none";
+      modalTxt.style.display = "none";
+    };
+
+    moreBtn.addEventListener("click", showModal);
+    modalBg.addEventListener("click", hideModal);
+  }
+
+  if (window.location.pathname.match("/artists")) {
     const moreBtn = document.querySelector(".JSbtnmore");
     const modalBg = document.querySelector(".show-story-bg");
     const modalTxt = document.querySelector(".show-story");

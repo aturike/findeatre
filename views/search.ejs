@@ -1,31 +1,42 @@
 <%- include("./partials/navbar.ejs") %>
-<button class="JSbutton" name="reset">Reset filter</button>
+
 <h2>What`s on</h2>
-<div>   
+<div class="filter-buttons">   
     <button class="JSbutton" name="today">Today</button>
     <button class="JSbutton" name="thisweek">This week</button>
     <button class="JSbutton" name="thismonth">This month</button>
     <button class="JSbutton" name="nextmonth">Next month</button>
+    <button class="JSbutton reset-button" name="reset">Reset filter</button>
 </div>
-<div>
+<div >
     <div>
-       <ul>
+       <ul class="search-table search-table-header">
         <li>Event</li>
         <li>City</li>
         <li>Location</li>
         <li>Date</li>
        </ul>
     </div>
-    <% searchResultsArr.forEach(show => { %>
+    <% searchUserFavShows.forEach(show => { %>
      <div>
-        <ul>
-            <li><%- show.title %></li>
+        <ul class="search-table">
+            <li class="fav-li">
+                <form action="/auth/show/<%-show._id%>">
+                    <button type="submit" class="fav-btn">                            
+                    <% if (show.favorite === true) { %>
+                        <img src="/images/staricon-fullwhite.png" alt="Add to favourite">
+                    <% } else { %>
+                        <img src="/images/staricon-white.png" alt="Add to favourite">
+                    <% } %>
+                    </button>
+                    
+                </form>
+                <span > <a class="search-show-detail" href="/shows/<%-show._id%>"><%- show.title %></a></span>
+            </li>
             <li><%- show.city %></li>
             <li><%- show.location %></li>
             <li><%- `${show.date.getDate()}-${show.date.getMonth()+1}-${show.date.getFullYear()}` %></li>
-            <form action="/auth/show/<%-show._id%>">
-                <button type="submit">Add to favourites</button>
-            </form>
+            
         </ul>
      </div>
     <% }) %>
