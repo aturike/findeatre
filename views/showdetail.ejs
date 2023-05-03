@@ -3,15 +3,28 @@
 
 </div>
 
-<section class="detailpage">
+<section class="detailpage-session">
+    <div class="detailpage show-detail">
     <div class="detailbox-left">
+        <div class="detailbox-img">
         <img class="details-img" src="<%= show.image%>" alt="Photo of <%=show.title%>">
+        </div>
         <div class="details-txt">
             <h1 class="animate__animated animate__fadeInUp"><%=show.title %></h1>
             <h3 class="animate__animated animate__fadeInUp" ><%=show.location%></h3>
             <h4  class="animate__animated animate__fadeInUp"><%=show.story.slice(0,150)%>...<button class="JSbtnmore">More</button></h4>
-           
-        </div>     
+        </div>
+        <div class="topright-position">
+            <form action="/auth/show/<%-show._id%>">
+                <button type="submit" id="favouritebtn">
+                <% if (show.favorite === true) { %>
+                    <img src="/images/staricon-fullwhite.png" alt="Add to favourite">
+                <% } else { %>
+                    <img src="/images/staricon-white.png" alt="Add to favourite">
+                <% } %>
+                </button>
+            </form>
+        </div>    
     </div>
 
     <div class="detailbox-right">
@@ -84,7 +97,7 @@
         <% } %>
 
     </div>
-
+</div>
 </section>
 <div class="show-story-bg">
     <div style="position: absolute; right: 10%; cursor: pointer;">

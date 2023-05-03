@@ -284,10 +284,16 @@ h2 {
   position: absolute;
   width: 40dvw;
   height: 80vh;
-  top: 15%;
-  left: 2%;
+  top: 21%;
+  left: 5%;
   z-index: -1;
   background-color: rgb(237, 231, 228);
+}
+
+.detailpage-session {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .detailpage {
@@ -295,6 +301,7 @@ h2 {
   grid-template-columns: 2fr 1fr;
   grid-template-rows: auto;
   margin: 10vh 1vw;
+  width: 80dvw;
 }
 
 .detailbox-left {
@@ -302,10 +309,17 @@ h2 {
   height: 70vh;
 }
 
+.detailbox-img {
+  height: 100%;
+  background-color: black;
+  position: relative;
+}
 .details-img {
   height: 100%;
   filter: brightness(60%);
   object-fit: cover;
+  position: absolute;
+  right: 0%;
 }
 
 .details-txt {
@@ -484,4 +498,107 @@ button.reset-button {
 
 .search-show-detail:hover {
   color: #e3223f;
+}
+
+/* Login page */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.login-form label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.3rem;
+}
+
+.login-form input {
+  width: 30dvh;
+  padding: 10px;
+}
+
+.signup-login-btn {
+  color: white;
+  background-color: transparent;
+  font-size: 1rem;
+  padding: 15px 25px;
+  border: 1px solid white;
+  margin-top: 1rem;
+}
+
+.signup-login-btn:hover {
+  color: black;
+  background-color: white;
+}
+
+.signup-login-btn:active {
+  background-color: white;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.login-signup-btn-div {
+  display: flex;
+  width: 40dvh;
+  justify-content: space-evenly;
+}
+
+.landing-page {
+  position: fixed;
+  inset: 0;
+  background-color: black;
+}
+
+.logo-div {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  inset: 20% 20%;
+  text-align: justify;
+  line-height: 1.8rem;
+}
+.logo-div img {
+  height: 100px;
+  filter: invert(100%);
+}
+
+.name-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.name-h1 {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 3rem;
+}
+
+.catchphrase {
+  font-family: "Ephesis", cursive;
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+.enter-btn {
+  margin-top: 2rem;
+}
+
+.enter-btn:hover {
+  color: #e3223f;
+  cursor: pointer;
+}
+
+.landing-link {
+  cursor: default;
 }

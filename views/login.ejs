@@ -1,19 +1,26 @@
 <%- include("./partials/navbar.ejs", {isLogin:false}) %>
 <!-- Display overwritten by javascript-->
 
-<form class="JSform" method="POST" action="/auth/login">
-  <label >Username <input name="username" /></label>
-  <label >Password <input name="password"  type="password"/></label>
-  <button type="submit" class="login-btn">Log in</button>
-</form>
 
-<form class="JSform" method="POST" action="/auth/signup">
+  <form class="JSform login-form" method="POST" action="/auth/login">
+    <label >Username <input name="username" /></label>
+    <label >Password <input name="password"  type="password"/></label>
+    <div class="login-signup-btn-div">
+    <button type="submit" class="signup-login-btn">Log in</button>
+    <button type="button" class="JSbutton signup-login-btn">Sign up</button>
+    </div>
+    <p class="JSerror"><%-errorMessage %></p>
+  </form>
+
+<form class="JSform login-form" method="POST" action="/auth/signup">
   <label >Username <input name="username" /></label>
   <label >Email address <input name="email" type="email"/></label>
   <label >Password <input name="password" type="password"/></label>
-  <button class="signup-btn">Sign up</button>
+  <div class="login-signup-btn-div">
+  <button class="signup-login-btn">Sign up</button>
+  <button type="button" class="JSbutton toogle signup-login-btn">Sign up</button>
+  </div>
+<p class="JSerror"><%-errorMessage %></p>
 </form>
 
-<button class="JSbutton">Sign up</button>
 
-<p><%-errorMessage %></p>

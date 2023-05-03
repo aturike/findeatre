@@ -4,9 +4,50 @@ const router = express.Router();
 const Show = require("../models/Show.model");
 const Artist = require("../models/Artist.model");
 const User = require("../models/User.model");
+const { isError } = require("util");
+
+router.get("/", (req, res, next) => {
+  res.render("landing");
+});
+
+// New array created by login User
+async function favFilter(req, database, id) {
+  try {
+    let allresults;
+    if (!id) {
+      allresults = await database.find().sort({ name: 1 }).exec();
+    } else {
+      allresults = [await database.findById(id)];
+    }
+
+    if (req.session.user) {
+      const user = await User.findById(req.session.user.userId);
+      let userfav;
+      if (database === Artist) {
+        userfav = user.favoriteartists;
+      } else if (database === Show) {
+        userfav = user.favoriteshows;
+      }
+
+      return allresults.map((result) => {
+        if (userfav.indexOf(result._id) !== -1) {
+          return { ...result._doc, favorite: true };
+        } else {
+          return { ...result._doc, favorite: false };
+        }
+      });
+    } else {
+      return allresults.map((result) => {
+        return { ...result._doc, favorite: false };
+      });
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
 
 /* GET home page  listing all shows*/
-router.get("/", async (req, res, next) => {
+router.get("/home", async (req, res, next) => {
   try {
     const shows = await Show.find();
 
@@ -56,7 +97,9 @@ router.get("/", async (req, res, next) => {
 router.get(`/shows/:showId`, async (req, res) => {
   try {
     const isLoggedinValue = !!req.session.user;
-    const show = await Show.findById(req.params.showId);
+    const showId = req.params.showId;
+    const [show] = await favFilter(req, Show, showId);
+
     const artists = await Artist.find();
     const castArr = [];
     const authorArr = [];
@@ -154,7 +197,7 @@ router.get("/artists", async (req, res, next) => {
 
     const isLoggedin = !!req.session.user;
 
-    let isFavoriteArtist = {};
+    let isFavoriteArtist;
 
     if (req.session.user) {
       const user = await User.findById(req.session.user.userId);
@@ -186,8 +229,9 @@ router.get("/artists", async (req, res, next) => {
 router.get(`/artists/:artistId`, async (req, res) => {
   try {
     const isLoggedinValue = !!req.session.user;
+    const artistId = req.params.artistId;
 
-    const artist = await Artist.findById(req.params.artistId);
+    const [artist] = await favFilter(req, Artist, artistId);
 
     const { shows } = await Artist.findById(req.params.artistId)
       .populate("shows")
@@ -231,7 +275,7 @@ router.get("/logout", (req, res, next) => {
       next(err);
     } else {
       console.log("Succesfull log out");
-      res.redirect("/");
+      res.redirect("/home");
     }
   });
 });
