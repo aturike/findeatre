@@ -1,8 +1,13 @@
 <nav>
     <div class="search-box">
-        <form  action="/search" class="btn-search"><i class="fas fa-search"></i>
-          <input name="search" class="input-search" placeholder="Type to search...">
+        <form  action="/search" class="form-search">
+          <button class="btn-search"><i class="fas fa-search"></i></button>
+          <input name="search" class="input-search" placeholder='Type to search...''>
         </form>
+    </div>
+    <div class="header-logo">
+      <img src="/images/logo-white.png" alt="Findeatre's logo">
+      <h1 calss="name-h1">Findeatre</h1>
     </div>
     <div class="navbar">
         <% if (isLogin) { %>
