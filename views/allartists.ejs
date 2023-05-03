@@ -3,10 +3,10 @@
 <h1>All Artists</h1>
 <section class="citysection">
     <div class="showgrid">
-        <% if (allartists.length === 0) { %>
+        <% if (artist.length === 0) { %>
             <p>No artists in the database.</p>
         <% } else { %>
-        <% isfavoriteartist.forEach(artist => { %>
+        <% artist.forEach(artist => { %>
             <a href="/artists/<%-artist._id%>">
             <div class="showbox">
                 <img src="<%=artist.image%>" alt="Photo of <%=artist.name%>">

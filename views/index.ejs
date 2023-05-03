@@ -3,10 +3,10 @@
 <h1>All Upcoming Shows</h1>
 <section class="citysection">
     <div class="showgrid">
-        <% if (amsterdamshows.length === 0) { %>
+        <% if (shows.length === 0) { %>
             <p>No upcoming show in Amsterdam or Paris!</p>
         <% } else { %>
-        <% isfavorite.forEach(show => { %>
+        <% shows.forEach(show => { %>
             <a href="/shows/<%-show._id%>">
             <div class="showbox">
                 <img src="<%=show.image%>" alt="Photo of <%=show.title%>">

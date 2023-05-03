@@ -2,12 +2,14 @@ const express = require("express");
 const router = express.Router();
 const Show = require("../models/Show.model");
 const User = require("../models/User.model");
+const { favFilter } = require("../utils/favFilter");
 
 // GET search page
 
 router.get("/", async (req, res, next) => {
   try {
     const isLoggedinValue = !!req.session.user;
+    const searchTerms = req.query.search;
 
     const sortTerm = req.query.sortdate;
     let beginDate = null;
@@ -54,11 +56,11 @@ router.get("/", async (req, res, next) => {
         break;
     }
 
-    const searchTerms = req.query.search
+    const searchTermsReg = req.query.search
       .replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
       .split(" ");
 
-    const searchRegex = new RegExp(searchTerms.join("|"), "gi");
+    const searchRegex = new RegExp(searchTermsReg.join("|"), "gi");
 
     const searchResultsArr = await Show.find({
       title: searchRegex,
@@ -70,26 +72,11 @@ router.get("/", async (req, res, next) => {
       .sort({ title: 1, date: 1 })
       .exec();
 
-    let searchUserFavShows;
-
-    if (req.session.user) {
-      const user = await User.findById(req.session.user.userId);
-
-      searchUserFavShows = searchResultsArr.map((show) => {
-        if (user.favoriteshows.indexOf(show._id) !== -1) {
-          return { ...show._doc, favorite: true };
-        } else {
-          return { ...show._doc, favorite: false };
-        }
-      });
-    } else {
-      searchUserFavShows = searchResultsArr.map((show) => {
-        return { ...show._doc, favorite: false };
-      });
-    }
+    const searchUserFavShows = await favFilter(req, Show);
 
     res.render("search", {
       searchUserFavShows,
+      searchTerms,
       isLogin: isLoggedinValue,
       searchValue: req.query.search,
     });

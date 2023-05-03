@@ -5,88 +5,21 @@ const Show = require("../models/Show.model");
 const Artist = require("../models/Artist.model");
 const User = require("../models/User.model");
 const { isError } = require("util");
+const { favFilter } = require("../utils/favFilter");
 
 router.get("/", (req, res, next) => {
   res.render("landing");
 });
 
-// New array created by login User
-async function favFilter(req, database, id) {
-  try {
-    let allresults;
-    if (!id) {
-      allresults = await database.find().sort({ name: 1 }).exec();
-    } else {
-      allresults = [await database.findById(id)];
-    }
-
-    if (req.session.user) {
-      const user = await User.findById(req.session.user.userId);
-      let userfav;
-      if (database === Artist) {
-        userfav = user.favoriteartists;
-      } else if (database === Show) {
-        userfav = user.favoriteshows;
-      }
-
-      return allresults.map((result) => {
-        if (userfav.indexOf(result._id) !== -1) {
-          return { ...result._doc, favorite: true };
-        } else {
-          return { ...result._doc, favorite: false };
-        }
-      });
-    } else {
-      return allresults.map((result) => {
-        return { ...result._doc, favorite: false };
-      });
-    }
-  } catch (err) {
-    console.log(err);
-  }
-}
-
 /* GET home page  listing all shows*/
 router.get("/home", async (req, res, next) => {
   try {
-    const shows = await Show.find();
-
-    const amsterdamShows = await Show.find()
-      .sort({ date: 1 })
-      .find({ city: "Amsterdam" })
-      .exec();
-
-    const parisShows = await Show.find()
-      .sort({ date: 1 })
-      .find({ city: "Paris" })
-      .exec();
-
     const isLoggedin = !!req.session.user;
-
-    let isFavorite = {};
-
-    if (req.session.user) {
-      const user = await User.findById(req.session.user.userId);
-
-      isFavorite = shows.map((show) => {
-        if (user.favoriteshows.indexOf(show._id) !== -1) {
-          return { ...show._doc, favorite: true };
-        } else {
-          return { ...show._doc, favorite: false };
-        }
-      });
-    } else {
-      isFavorite = shows.map((show) => {
-        return { ...show._doc, favorite: false };
-      });
-    }
+    const shows = await favFilter(req, Show);
 
     res.render("index", {
-      shows: shows,
-      amsterdamshows: amsterdamShows,
-      parisshows: parisShows,
+      shows,
       isLogin: isLoggedin,
-      isfavorite: isFavorite,
     });
   } catch (error) {
     console.log(error);
@@ -110,69 +43,21 @@ router.get(`/shows/:showId`, async (req, res) => {
       castArr.push(artists.filter((artist) => artist.name === castmember)[0]);
     });
 
-    let isFavoriteCast = {};
-
-    if (req.session.user) {
-      const user = await User.findById(req.session.user.userId);
-
-      isFavoriteCast = castArr.map((artist) => {
-        if (user.favoriteartists.indexOf(artist._id) !== -1) {
-          return { ...artist._doc, favorite: true };
-        } else {
-          return { ...artist._doc, favorite: false };
-        }
-      });
-    } else {
-      isFavoriteCast = castArr.map((artist) => {
-        return { ...artist._doc, favorite: false };
-      });
-    }
+    const isFavoriteCast = await favFilter(req, Artist, null, castArr);
 
     /* Toggle option on favourite button for authors*/
     [...show.author].forEach((author) => {
       authorArr.push(artists.filter((artist) => artist.name === author)[0]);
     });
 
-    let isFavoriteAuthor = {};
-
-    if (req.session.user) {
-      const user = await User.findById(req.session.user.userId);
-
-      isFavoriteAuthor = authorArr.map((artist) => {
-        if (user.favoriteartists.indexOf(artist._id) !== -1) {
-          return { ...artist._doc, favorite: true };
-        } else {
-          return { ...artist._doc, favorite: false };
-        }
-      });
-    } else {
-      isFavoriteAuthor = authorArr.map((artist) => {
-        return { ...artist._doc, favorite: false };
-      });
-    }
+    const isFavoriteAuthor = await favFilter(req, Artist, null, authorArr);
 
     /* Toggle option on favourite button for directors*/
     [...show.director].forEach((director) => {
       directorArr.push(artists.filter((artist) => artist.name === director)[0]);
     });
 
-    let isFavoriteDirector = {};
-
-    if (req.session.user) {
-      const user = await User.findById(req.session.user.userId);
-
-      isFavoriteDirector = directorArr.map((artist) => {
-        if (user.favoriteartists.indexOf(artist._id) !== -1) {
-          return { ...artist._doc, favorite: true };
-        } else {
-          return { ...artist._doc, favorite: false };
-        }
-      });
-    } else {
-      isFavoriteDirector = directorArr.map((artist) => {
-        return { ...artist._doc, favorite: false };
-      });
-    }
+    let isFavoriteDirector = await favFilter(req, Artist, null, directorArr);
 
     if (!show) {
       res.redirect("/shows");
@@ -193,32 +78,13 @@ router.get(`/shows/:showId`, async (req, res) => {
 /* GET all artists page listing all artists*/
 router.get("/artists", async (req, res, next) => {
   try {
-    const allartists = await Artist.find().sort({ name: 1 }).exec();
+    const artist = await favFilter(req, Artist);
 
     const isLoggedin = !!req.session.user;
 
-    let isFavoriteArtist;
-
-    if (req.session.user) {
-      const user = await User.findById(req.session.user.userId);
-
-      isFavoriteArtist = allartists.map((artist) => {
-        if (user.favoriteartists.indexOf(artist._id) !== -1) {
-          return { ...artist._doc, favorite: true };
-        } else {
-          return { ...artist._doc, favorite: false };
-        }
-      });
-    } else {
-      isFavoriteArtist = allartists.map((artist) => {
-        return { ...artist._doc, favorite: false };
-      });
-    }
-
     res.render("allartists", {
-      allartists: allartists,
+      artist,
       isLogin: isLoggedin,
-      isfavoriteartist: isFavoriteArtist,
     });
   } catch (error) {
     console.log(error);
