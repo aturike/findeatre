@@ -3,18 +3,18 @@
 
 
   <form class="JSform login-form" method="POST" action="/auth/login">
-    <label >Username <input name="username" /></label>
+    <label >Username <input name="username" value="<%= username %>"/></label>
     <label >Password <input name="password"  type="password"/></label>
     <div class="login-signup-btn-div">
-    <button type="submit" class="signup-login-btn">Log in</button>
     <button type="button" class="JSbutton signup-login-btn">Sign up</button>
+    <button type="submit" class="signup-login-btn">Log in</button>
     </div>
     <p class="JSerror"><%-errorMessage %></p>
   </form>
 
 <form class="JSform login-form" method="POST" action="/auth/signup">
-  <label >Username <input name="username" /></label>
-  <label >Email address <input name="email" type="email"/></label>
+  <label >Username <input name="username" value="<%= username %>" /></label>
+  <label >Email address <input name="email" type="email" value="<%= email %>"/></label>
   <label >Password <input name="password" type="password"/></label>
   <div class="login-signup-btn-div">
   <button class="signup-login-btn">Sign up</button>

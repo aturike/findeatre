@@ -15,18 +15,30 @@ router.get("/login", isLoggedOut, (req, res, next) => {
     res.render("login", {
       errorMessage:
         "You have to log in first to add shows or artists to your favourites",
+      username: "",
+      email: "",
     });
   } else if (req.query.user === "sign-up-error-pass") {
     res.render("login", {
       errorMessage:
         "Password has to contain 1 Capital, 1 Number, 1 Special character and has to have a minimum length of 6",
+      username: req.query.username,
+      email: req.query.email,
     });
   } else if (req.query.user === "sign-up-error-user") {
     res.render("login", {
       errorMessage: "Username must be filled in",
+      username: "",
+      email: "",
+    });
+  } else if (req.query.user === "user-in-use") {
+    res.render("login", {
+      errorMessage: "Username already exists. Please choose another one",
+      username: "",
+      email: "",
     });
   } else {
-    res.render("login", { errorMessage: "" });
+    res.render("login", { errorMessage: "", username: "", email: "" });
   }
 });
 
@@ -45,10 +57,18 @@ router.post("/login", isLoggedOut, async (req, res, next) => {
         console.log("Succesful log in");
         res.redirect("/home");
       } else {
-        res.render("login", { errorMessage: "Invalid password" });
+        res.render("login", {
+          errorMessage: "Invalid password",
+          username: req.body.username,
+          email: "",
+        });
       }
     } else {
-      res.render("login", { errorMessage: "Invalid user" });
+      res.render("login", {
+        errorMessage: "Invalid user",
+        username: "",
+        email: "",
+      });
     }
   } catch (error) {
     console.log(error);
@@ -61,6 +81,12 @@ router.post("/signup", isLoggedOut, async (req, res, next) => {
       const err = encodeURIComponent("sign-up-error-user");
       res.redirect("/auth/login?user=" + err);
     } else {
+      const isUserexist = await User.find({ username: req.body.username });
+      if (isUserexist) {
+        const err = encodeURIComponent("user-in-use");
+        res.redirect("/auth/login?user=" + err);
+      }
+
       if (passwordRegex.test(req.body.password)) {
         const salt = await bcryptjs.genSalt(9);
         const passwordHash = bcryptjs.hashSync(req.body.password, salt);
@@ -73,7 +99,16 @@ router.post("/signup", isLoggedOut, async (req, res, next) => {
         res.redirect("/auth/login");
       } else {
         const err = encodeURIComponent("sign-up-error-pass");
-        res.redirect("/auth/login?user=" + err);
+        const username = encodeURIComponent(req.body.username);
+        const email = encodeURIComponent(req.body.email);
+        res.redirect(
+          "/auth/login?user=" +
+            err +
+            "&username=" +
+            username +
+            "&email=" +
+            email
+        );
       }
     }
   } catch (error) {

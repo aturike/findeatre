@@ -72,7 +72,12 @@ router.get("/", async (req, res, next) => {
       .sort({ title: 1, date: 1 })
       .exec();
 
-    const searchUserFavShows = await favFilter(req, Show);
+    const searchUserFavShows = await favFilter(
+      req,
+      Show,
+      null,
+      searchResultsArr
+    );
 
     res.render("search", {
       searchUserFavShows,
