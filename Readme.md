@@ -157,7 +157,7 @@ Authors
 
 ## Links
 
-- [Slides Link](https://www.canva.com/design/DAFf92mGnB4/y3IN1_rGbYksDFPE9kX0jA/edit?utm_content=DAFf92mGnB4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+- [Slides Link](https://www.canva.com/design/DAFh9MZW05g/_geXPYFD4tI7ahGZNJXN5A/edit?utm_content=DAFh9MZW05g&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 - [Github repository Link](https://github.com/aturike/findeatre)
 - [Adam`s github](https://github.com/aturike)
 - [Solen`s github](https://github.com/solenwa)
