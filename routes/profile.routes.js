@@ -89,6 +89,7 @@ router.get("/", isLoggedIn, async (req, res) => {
   res.render("profile", { isLogin: true, user });
 });
 
+/* Modify my email address */
 router.post("/edit/email/:userid", isLoggedIn, async (req, res) => {
   try {
     await User.findByIdAndUpdate(req.params.userid, {
@@ -100,21 +101,8 @@ router.post("/edit/email/:userid", isLoggedIn, async (req, res) => {
     console.log(error);
   }
 });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-// Solen router
+
+/* Modify my profile picture */
 
 const uploader = require('../middleware/cloudinary.config.js');
 
