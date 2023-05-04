@@ -6,9 +6,8 @@
 
 Findeatre is websiteconcept of finding theatre shows in one`s residental area. The website allows the create new users. The user (and only a user) can to add new shows, artists, directors, and any castmembers to its favourites. Data for the shows and artist are static and created by us.
 
-[<p align="center"><img src="https://github.com/solenwa.png" width="90px;"/><br /><sub><a href="https://github.com/solenwa">Solen W</a></sub><img src="https://github.com/aturike.png" width="90px;"/><br /><sub><a href="https://github.com/aturike">Solen W</a></sub></p>]()
-
-[<img src="https://github.com/aturike.png" width="90px;"/><br /><sub><a href="https://github.com/aturike">Solen W</a></sub>](https://github.com/aturike)
+Authors
+[<p align="center"><img style="margin-right: 10px" src="https://github.com/solenwa.png" width="90px;"/><img src="https://github.com/aturike.png" width="90px;"/><br /><sub><a  style="margin-right: 10px" href="https://github.com/solenwa">Solen W</a></sub><sub><a href="https://github.com/aturike">Adam Turi</a></sub></p>]()
 
 ## MVP
 
