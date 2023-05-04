@@ -14,14 +14,14 @@ router.get("/login", isLoggedOut, (req, res, next) => {
   if (req.query.user === "error") {
     res.render("login", {
       errorMessage:
-        "You have to log in first to add shows or artists to your favourites",
+        "You have to log in first to add shows or artists to your favourites!",
       username: "",
       email: "",
     });
   } else if (req.query.user === "sign-up-error-pass") {
     res.render("login", {
       errorMessage:
-        "Password has to contain 1 Capital, 1 Number, 1 Special character and has to have a minimum length of 6",
+        "Password has to contain 1 Capital, 1 Number, 1 Special character and has to have a minimum length of 6!",
       username: req.query.username,
       email: req.query.email,
     });
@@ -33,7 +33,7 @@ router.get("/login", isLoggedOut, (req, res, next) => {
     });
   } else if (req.query.user === "user-in-use") {
     res.render("login", {
-      errorMessage: "Username already exists. Please choose another one",
+      errorMessage: "Username already exists. Please choose another one!",
       username: "",
       email: "",
     });
@@ -82,12 +82,10 @@ router.post("/signup", isLoggedOut, async (req, res, next) => {
       res.redirect("/auth/login?user=" + err);
     } else {
       const isUserexist = await User.find({ username: req.body.username });
-      if (isUserexist) {
+      if (isUserexist.length !== 0) {
         const err = encodeURIComponent("user-in-use");
         res.redirect("/auth/login?user=" + err);
-      }
-
-      if (passwordRegex.test(req.body.password)) {
+      } else if (passwordRegex.test(req.body.password)) {
         const salt = await bcryptjs.genSalt(9);
         const passwordHash = bcryptjs.hashSync(req.body.password, salt);
 
