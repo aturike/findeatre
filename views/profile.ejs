@@ -10,16 +10,17 @@
             </button>
         </div>
         <form style="display: none;" action="/profile/edit/img/<%= user._id %>" method="post" enctype="multipart/form-data" class="JSformEditphoto">
-            <i class="fa fa-camera fa-4x" style="width:100px;color: #fcfcfc;"></i>
+            <i class="fa fa-camera fa-3x" style="width:100px;color: #fcfcfc;"></i>
             <input type="file" name="imageUrl" accept="image/png, image/jpg">
             <button type="submit" class="JSbtnSubmitphoto">Edit</button>
         </form>
     </div>
     <div class="profile-info">
         <h2>Hello <%= user.username %></h2>
+        <hr>
         <div>
             <div class="JSemailStatic">
-                <h3><%= user.email %></h3>
+                <h3>Email: <%= user.email %></h3>
                 <button class="JSbtnEdit">
                     <i class="fa fa-pencil-alt" style="font-size: 25px;color: white;"></i>
                 </button>
@@ -31,3 +32,5 @@
         </div>
     </div>
 </section>
+
+<%- include("./partials/footer.ejs") %>

@@ -1,8 +1,11 @@
-/*Generic Formatting*/
-
+/*General Formatting*/
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
 }
 
 img {
@@ -17,6 +20,12 @@ a {
 h2 {
   font-family: "Imbue", serif;
   font-size: 2rem;
+  margin: 2% 0;
+}
+
+.name-h1 {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 2rem;
 }
 
 /*Navbar*/
@@ -24,6 +33,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 3vh;
 }
 
 .navbar {
@@ -39,8 +49,12 @@ nav {
   font-size: 1.5em;
 }
 
+.navbar li:hover {
+  font-size: 1.6em;
+}
+
 /* Header Logo */
-.header-logo {
+.header-logo a {
   display: flex;
   align-items: center;
   height: 100%;
@@ -109,11 +123,12 @@ nav {
 /* Profile Page */
 .profile-section {
   display: flex;
-  margin: 10% 0;
+  justify-content: center;
+  margin: 5% 0;
 }
 
 .profile-photo {
-  width: 40%;
+  width: 30%;
 }
 
 .profile-photo img {
@@ -124,7 +139,10 @@ nav {
 }
 
 .JSphotoStatic {
-  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .JSbtnEditphoto {
@@ -132,8 +150,6 @@ nav {
   width: 5vw;
   background-color: transparent;
   border-style: none;
-  position: relative;
-  left: -50%;
 }
 
 .JSemailStatic {
@@ -141,9 +157,18 @@ nav {
   align-items: center;
 }
 
-.profile-section h2 {
+.profile-info {
+  width: 40%;
+}
+
+.profile-info hr {
+  width: 40%;
+  text-align: left;
+  margin: 0;
+}
+
+.profile-info h2 {
   font-size: 3em;
-  margin-bottom: 10%;
 }
 
 .JSbtnEdit {
@@ -174,36 +199,7 @@ nav {
   width: 28vw;
 }
 
-/* Page with all shows*/
-.showgrid {
-  display: grid;
-  grid-template: auto / 1fr 1fr 1fr;
-  gap: 10px;
-}
-
-/* Auth page */
-
-.login {
-  display: block;
-}
-
-.sign-up {
-  display: none;
-}
-
-/* Body full page */
-body {
-  background-color: black;
-  color: white;
-  display: flex;
-  flex-direction: column;
-}
-
-h2 {
-  margin: 2% 0;
-}
-
-/*Page with all shows and all artists*/
+/* Pages with all shows and all artists*/
 .citysection {
   display: flex;
   flex-direction: column;
@@ -211,6 +207,9 @@ h2 {
 }
 
 .showgrid {
+  display: grid;
+  grid-template: auto / 1fr 1fr 1fr;
+  gap: 10px;
   margin: 0;
 }
 
@@ -284,9 +283,7 @@ h2 {
   color: black;
 }
 
-/*Changes by Adam*/
-
-/*Show details page*/
+/*Show and Artist details pages*/
 .grey-box {
   position: absolute;
   width: 40dvw;
@@ -443,7 +440,6 @@ h2 {
 }
 
 /* Search page */
-
 .search-table {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -585,12 +581,6 @@ button.reset-button {
 }
 
 /* Landing page */
-
-.name-h1 {
-  font-family: "Montserrat Alternates", sans-serif;
-  font-size: 2rem;
-}
-
 .catchphrase {
   font-family: "Imbue", serif;
   font-size: 2rem;
@@ -611,3 +601,47 @@ button.reset-button {
 .landing-link {
   cursor: default;
 }
+
+/* Footer */
+.footer{
+  background:#000;
+  text-align: center;
+  }
+  
+  .footer .row{
+  width: 100%;
+  margin: 1% 0%;
+  padding: 0.6% 0%;
+  color: gray;
+  font-size: 1em;
+  display: flex;
+  justify-content: center;
+  }
+  
+  .footer .row a{
+  color: gray;
+  transition: 0.5s;
+  margin: 2%;
+  }
+  
+  .footer .row a:hover{
+  color: #fff;
+  }
+  
+  .footer .row ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0;
+    width: 60%;
+  }
+  
+  .footer .row ul li{
+    list-style-type: none;
+    width: 100%;
+  }
+  
+  .footer .row a i{
+  font-size: 2em;
+  margin: 0% 1%;
+  }
